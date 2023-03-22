@@ -1,3 +1,4 @@
+import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
 import React, { useState, useEffect }  from 'react'
 
 const FeaturedCompanies = () => {
@@ -27,20 +28,26 @@ const FeaturedCompanies = () => {
     // Pass an empty array([]) as the second argument to useEffect.This tells React to run the effect only once, when the component is mounted, and not on subsequent re - renders.
 
   return (
-    <div>
-      <h2> Featured Companies</h2>
-      <ul>
+    <Box
+      sx={{
+        border: "1px solid red",
+        margin: 2,
+      }}
+    >
+      <Typography variant="h2"> Featured Companies</Typography>
+      <List>
         {featuredCompanies.map((featuredCompany) => (
-          <li key={featuredCompany.canonical_name}>
-            <h3>{featuredCompany.canonical_name}</h3>
-            <h4>
-              {featuredCompany.count}{" "}
-              {featuredCompany.count > 1 ? "Jobs" : "Job"}
-            </h4>
-          </li>
+          <ListItem key={featuredCompany.canonical_name}>
+            <ListItemText
+              primary={featuredCompany.canonical_name}
+              secondary={`${featuredCompany.count} ${
+                featuredCompany.count > 1 ? "Jobs" : "Job"
+              }`}
+            />
+          </ListItem>
         ))}
-      </ul>
-    </div>
+      </List>
+    </Box>
   );
 }
 

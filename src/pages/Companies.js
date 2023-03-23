@@ -1,8 +1,12 @@
 import React from 'react'
+import Index from '../Components/CompaniesHiring/index.js';
 
 const Companies = () => {
   return (
-    <div>Companies</div>
+    <>
+    <Index />
+    
+    </>
   )
 }
 

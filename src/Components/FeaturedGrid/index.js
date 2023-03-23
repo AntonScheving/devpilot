@@ -9,7 +9,7 @@ const FeaturedGrid = () => {
       spacing={2}
       sx={{
         border: "1px solid blue",
-          m: 4,
+        m: 4,
       }}
     >
       <Grid item xs={12} sm={6}>
@@ -18,6 +18,6 @@ const FeaturedGrid = () => {
       <Grid item xs={12} sm={6}></Grid>
     </Grid>
   );
-}
+};
 
-export default FeaturedGrid
+export default FeaturedGrid;

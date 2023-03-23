@@ -1,7 +1,7 @@
 import React from "react";
-import CompaniesHiring from "../components/CompaniesHiring";
+import CompaniesHiring from "../Components/CompaniesHiring";
 
-const Companies = () => {
+const CompaniesPage = () => {
   return (
     <>
       <CompaniesHiring />
@@ -9,4 +9,4 @@ const Companies = () => {
   );
 };
 
-export default Companies;
+export default CompaniesPage;

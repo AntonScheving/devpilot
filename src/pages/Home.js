@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
-import FeaturedGrid from '../components/FeaturedGrid';
+import FeaturedGrid from '../Components/FeaturedGrid';
 
 const Home = () => {
   return (

@@ -35,18 +35,29 @@ const FeaturedCompanies = () => {
       }}
     >
       <Typography variant="h2"> Top Companies</Typography>
-      <Typography variant="subtitle1"> Ranked by job vacancies</Typography>
+      <Typography variant="subtitle1">
+        {" "}
+        Ranked by job vacancies available
+      </Typography>
       <List
-        sx={{ width: "100%" }}
+        sx={{
+          width: "100%",
+          textAlign: "center",
+        }}
         style={{
           display: "flex",
           flexDirection: "column",
+          justifyContent: "center",
           textAlign: "center",
         }}
       >
         {featuredCompanies.map((featuredCompany) => (
           <ListItem key={featuredCompany.canonical_name}>
             <ListItemText
+              sx={{
+                width: "100%",
+                textAlign: "center",
+              }}
               primary={featuredCompany.canonical_name}
               secondary={`${featuredCompany.count} ${
                 featuredCompany.count > 1 ? "Jobs" : "Job"

@@ -1,13 +1,13 @@
 import React from 'react'
-import Index from '../Components/CompaniesHiring/index.js';
+import CompaniesHiring from "../Components/CompaniesHiring/";
 
-const Companies = () => {
+const CompaniesPage = () => {
   return (
     <>
-    <Index />
+    <CompaniesHiring />
     
     </>
   )
 }
 
-export default Companies
+export default CompaniesPage

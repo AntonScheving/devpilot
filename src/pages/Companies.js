@@ -1,13 +1,12 @@
-import React from 'react'
-import CompaniesHiring from "../Components/CompaniesHiring/";
+import React from "react";
+import CompaniesHiring from "../Components/CompaniesHiring";
 
 const CompaniesPage = () => {
   return (
     <>
-    <CompaniesHiring />
-    
+      <CompaniesHiring />
     </>
-  )
-}
+  );
+};
 
-export default CompaniesPage
+export default CompaniesPage;

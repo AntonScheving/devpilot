@@ -1,6 +1,6 @@
-import React from "react";
-import FeaturedCompanies from "../FeaturedCompanies";
-import { Grid } from "@mui/material";
+import React from 'react'
+import FeaturedCompanies from '../FeaturedCompanies';
+import { Grid } from '@mui/material';
 
 const FeaturedGrid = () => {
   return (

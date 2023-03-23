@@ -34,8 +34,16 @@ const FeaturedCompanies = () => {
         margin: 2,
       }}
     >
-      <Typography variant="h2"> Featured Companies</Typography>
-      <List>
+      <Typography variant="h2"> Top Companies</Typography>
+      <Typography variant="subtitle1"> Ranked by job vacancies</Typography>
+      <List
+        sx={{ width: "100%" }}
+        style={{
+          display: "flex",
+          flexDirection: "column",
+          textAlign: "center",
+        }}
+      >
         {featuredCompanies.map((featuredCompany) => (
           <ListItem key={featuredCompany.canonical_name}>
             <ListItemText

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 
-export default function Companies() {
+export default function CompaniesHiring() {
   const [companies, setCompanies] = useState([]);
 
   useEffect(() => {

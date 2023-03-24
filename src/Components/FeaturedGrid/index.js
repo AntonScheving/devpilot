@@ -1,29 +1,22 @@
-import React from 'react'
-import FeaturedCompanies from '../FeaturedCompanies';
-import { Grid, Box } from '@mui/material';
-import FeaturedListings from '../FeaturedListings';
+import React from "react";
+import FeaturedCompanies from "../FeaturedCompanies";
+import { Grid, Box } from "@mui/material";
+import FeaturedListings from "../FeaturedListings";
 import { styled } from "@mui/material/styles";
 
 const Root = styled(Box)(({ theme }) => ({
-  backgroundColor: `${ theme.palette.background.default }`
-}))
-
+  backgroundColor: `${theme.palette.background.default}`,
+}));
 
 const FeaturedGrid = () => {
   return (
     <Root>
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          border: "1px solid blue",
-        }}
-      >
-        <Grid item xs={12} sm={6}>
-          <FeaturedCompanies />
-        </Grid>
-        <Grid item xs={12} sm={6}>
+      <Grid container spacing={2} sx={{}}>
+        <Grid item xs={12} sm={8} md={6}>
           <FeaturedListings />
+        </Grid>
+        <Grid item xs={12} sm={8} md={6}>
+          <FeaturedCompanies />
         </Grid>
       </Grid>
     </Root>

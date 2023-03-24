@@ -1,9 +1,11 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
+import { styled, useTheme } from "@mui/material/styles";
 
 import { formatDistanceToNow } from "date-fns";
 
 const FeaturedListings = () => {
+  const theme = useTheme();
 
 
   // Using the useState hook to initialize the featured listings
@@ -31,53 +33,62 @@ const FeaturedListings = () => {
   }, []);
   // Pass an empty array([]) as the second argument to useEffect.This tells React to run the effect only once, when the component is mounted, and not on subsequent re - renders.
   
+    const Root = styled(Box)(({ theme }) => ({
+      backgroundColor: `${theme.palette.primary.main}`,
+      margin: 30,
+    }));
  
   
   return (
-    <Box
-      sx={{
-        border: "1px solid red",
-        margin: 2,
-        fontFamily: "Segoe UI",
-      }}
-    >
-      <Typography variant="h2"> Latest Listings</Typography>
-      <Typography variant="subtitle1" color="secondary">
-        {" "}
-        sorted by date
-      </Typography>
-      <List
+    <Root>
+      <Box
         sx={{
-          width: "100%",
-          textAlign: "center",
-        }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
+          margin: 2,
+          fontFamily: `{'Lato', sans-serif;}`,
         }}
       >
-        {featuredListings.map((featuredListing) => (
-          <ListItem key={featuredListing.title}>
-            <ListItemText
-              sx={{
-                width: "100%",
-                textAlign: "center",
-              }}
-              primary={featuredListing.title}
-              // Format the date string of the `created` property in the `featuredListing` object to relative time "...days ago"
-              // using the `formatDistanceToNow` from date-fns library
-              // https://date-fns.org/v2.29.3/docs/formatDistanceToNow
-              secondary={`Created ${formatDistanceToNow(
-                new Date(featuredListing.created),
-                { addSuffix: true }
-              )}`}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+        <Typography variant="h2" color={theme.palette.text.tertiary}>
+          {" "}
+          Latest Listings
+        </Typography>
+        <Typography variant="subtitle1" color="secondary">
+          {" "}
+          sorted by date
+        </Typography>
+        <List
+          sx={{
+            width: "100%",
+            textAlign: "center",
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          {featuredListings.map((featuredListing) => (
+            <ListItem key={featuredListing.title}>
+              <ListItemText
+                sx={{
+                  width: "100%",
+                  textAlign: "center",
+                  color: theme.palette.text.tertiary,
+                }}
+                primary={featuredListing.title}
+                // Format the date string of the `created` property in the `featuredListing` object to relative time "...days ago"
+                // using the `formatDistanceToNow` from date-fns library
+                // https://date-fns.org/v2.29.3/docs/formatDistanceToNow
+                secondary={`Created ${formatDistanceToNow(
+                  new Date(featuredListing.created),
+                  { addSuffix: true }
+                )}`}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
+    </Root>
   );
 };
 

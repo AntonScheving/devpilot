@@ -1,20 +1,21 @@
-import React from 'react';
-import { Box, Button, Typography } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import React from "react";
+import { Grid, Box, Button, Typography } from "@mui/material";
+import { styled, useTheme } from "@mui/material/styles";
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(0deg, ${theme.palette.background.default} 22%, ${theme.palette.primary.main} 90%)`, // Set the background gradient colors
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
+  textAlign: "center",
   height: "100vh",
   /* padding: "0 20px",*/
 }));
 
 const Image = styled("img")({
   maxWidth: "100%",
-  height: "auto",
-  marginRight: "50px",
+  maxHeight: "350px",
+  borderRadius: "20%",
 });
 
 const ButtonWrapper = styled("div")({
@@ -34,11 +35,23 @@ const CustomButton = styled(Button)(({ theme }) => ({
 }));
 
 const Hero = () => {
+  const theme = useTheme();
   return (
     // root component: the outermost component that renders a host component
     <Root>
-      <Image src="" alt="Image by upklyak on Freepik" />
-      {/* <Typography variant="caption" sx={{ color: "common.white" }}>
+      <Grid
+        container
+        sx={{
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <Grid item xs={12} sm={6}>
+          <Image
+            src={process.env.PUBLIC_URL + "/images/lookingForAJob.jpg"}
+            alt="Image by upklyak on Freepik"
+          />
+          {/* <Typography variant="caption" sx={{ color: "common.white" }}>
         Image by{" "}
         <a
           href="https://www.freepik.com/free-vector/job-search-banner-we-are-hiring-recruitment-ads_26474572.htm#page=2&position=14&from_view=author"
@@ -49,29 +62,37 @@ const Hero = () => {
         </a>{" "}
         on Freepik
       </Typography> */}
-      <div>
-        <Typography
-          variant="h2"
-          component="h1"
-          gutterBottom
-          sx={{ color: "common.white" }}
-        >
-          Find your dream job
-        </Typography>
-        <Typography variant="h5" gutterBottom sx={{ color: "common.white" }}>
-          The best carreer opportunities happen here
-        </Typography>
-        
-        <ButtonWrapper>
-          <CustomButton variant="contained" color="info">
-            JOBS
-          </CustomButton>
-          <CustomButton variant="contained">EMPLOYERS</CustomButton>
-        </ButtonWrapper>
-      </div>
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <div>
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{
+                color: theme.palette.primary.main,
+                fontWeight: 700,
+              }}
+            >
+              Find your dream job
+            </Typography>
+            <Typography
+              variant="h5"
+              gutterBottom
+              sx={{ color: "common.white" }}
+            >
+              The best carreer opportunities happen here
+            </Typography>
+
+            <ButtonWrapper>
+              <CustomButton variant="contained">JOBS</CustomButton>
+              <CustomButton variant="contained">EMPLOYERS</CustomButton>
+            </ButtonWrapper>
+          </div>
+        </Grid>
+      </Grid>
     </Root>
   );
-}
- 
+};
 
 export default Hero;

@@ -1,10 +1,8 @@
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
 import React, { useState, useEffect } from 'react';
-import { useTheme } from "@mui/material/styles";
 
 const FeaturedCompanies = () => {
 
-  const theme = useTheme();
 
   // Using the useState hook to initialize the featured companies
   const [featuredCompanies, setFeaturedCompanies] = useState([]);

@@ -1,12 +1,13 @@
 import { createTheme } from "@mui/material/styles";
 
+
 const theme = createTheme({
   palette: {
     primary: {
-      main: "#90ADC6",
+      main: "#333652",
     },
     secondary: {
-      main: "#FAD02C",
+      main: "#90ADC6",
     },
     info: {
       main: "#FAD02C",
@@ -16,22 +17,12 @@ const theme = createTheme({
     },
     text: {
       primary: "#333652",
+      secondary: "#90ADC6",
     },
   },
   typography: {
     fontFamily: {
-      fontFamily: [
-        "-apple-system",
-        "BlinkMacSystemFont",
-        '"Segoe UI"',
-        "Roboto",
-        '"Helvetica Neue"',
-        "Arial",
-        "sans-serif",
-        '"Apple Color Emoji"',
-        '"Segoe UI Emoji"',
-        '"Segoe UI Symbol"',
-      ].join(","),
+      fontFamily: ["Lato", "Roboto", "Montserrat", '"Segoe UI"'].join(","),
     },
   },
 });

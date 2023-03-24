@@ -41,8 +41,8 @@ export default function CompaniesHiring() {
       {groupedCompanies.map((company) => (
         <div key={company.url}>
           <Link
-            to={`/company-jobs/${encodeURIComponent(company.name)}`}
-            target="_blank"
+            to={`/CompanyJobs/${encodeURIComponent(company.name)}`}
+            
           >
             {company.name} ({company.count})
           </Link>

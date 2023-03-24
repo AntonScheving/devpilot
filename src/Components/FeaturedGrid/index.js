@@ -1,6 +1,7 @@
 import React from 'react'
 import FeaturedCompanies from '../FeaturedCompanies';
 import { Grid } from '@mui/material';
+import FeaturedListings from '../FeaturedListings';
 
 const FeaturedGrid = () => {
   return (
@@ -15,7 +16,10 @@ const FeaturedGrid = () => {
       <Grid item xs={12} sm={6}>
         <FeaturedCompanies />
       </Grid>
-      <Grid item xs={12} sm={6}></Grid>
+      <Grid item xs={12} sm={6}>
+        <FeaturedListings />
+      </Grid>
+
     </Grid>
   );
 };

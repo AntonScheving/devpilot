@@ -1,6 +1,7 @@
 import React from "react";
 import { Grid, Box, Button, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(0deg, ${theme.palette.background.default} 22%, ${theme.palette.primary.main} 90%)`, // Set the background gradient colors
@@ -8,7 +9,7 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  height: "100vh",
+  height: "150vh",
   /* padding: "0 20px",*/
 }));
 
@@ -72,21 +73,31 @@ const Hero = () => {
               sx={{
                 color: theme.palette.primary.main,
                 fontWeight: 700,
+                textTransform: "uppercase",
               }}
             >
-              Find your dream job
+              Unlock your career potential
             </Typography>
             <Typography
               variant="h5"
               gutterBottom
               sx={{ color: "common.white" }}
             >
-              The best carreer opportunities happen here
+              Discover the perfect job match for your skills and passions
             </Typography>
 
             <ButtonWrapper>
-              <CustomButton variant="contained">JOBS</CustomButton>
-              <CustomButton variant="contained">EMPLOYERS</CustomButton>
+              <CustomButton
+                variant="contained"
+                size="large"
+                component={Link}
+                to="/jobs"
+              >
+                JOBS
+              </CustomButton>
+              <CustomButton variant="contained" size="large" component={Link} to="/Companies" >
+                EMPLOYERS
+              </CustomButton>
             </ButtonWrapper>
           </div>
         </Grid>

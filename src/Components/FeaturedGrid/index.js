@@ -17,7 +17,6 @@ const FeaturedGrid = () => {
         spacing={2}
         sx={{
           border: "1px solid blue",
-          mx: 4,
         }}
       >
         <Grid item xs={12} sm={6}>

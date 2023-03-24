@@ -1,5 +1,5 @@
-import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
-import React, { useState, useEffect } from "react";
+import { Box, List, ListItem, ListItemText, Typography, Button } from "@mui/material";
+import React, { useState, useEffect, Link } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 
 import { formatDistanceToNow } from "date-fns";
@@ -36,7 +36,17 @@ const FeaturedListings = () => {
     const Root = styled(Box)(({ theme }) => ({
       backgroundColor: `${theme.palette.primary.main}`,
       margin: 30,
+      borderRadius: 25,
     }));
+  
+  const CustomButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.info.main,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
+    margin: 10,
+  }));
  
   
   return (
@@ -87,6 +97,14 @@ const FeaturedListings = () => {
             </ListItem>
           ))}
         </List>
+        <CustomButton
+          variant="contained"
+          size="large"
+          component={Link}
+          to="/jobs"
+        >
+          JOBS
+        </CustomButton>
       </Box>
     </Root>
   );

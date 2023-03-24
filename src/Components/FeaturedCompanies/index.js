@@ -1,11 +1,11 @@
-import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import { Box, List, ListItem, ListItemText, Typography, Button } from '@mui/material';
+import React, { useState, useEffect, Link } from 'react';
 import { styled, useTheme } from "@mui/material/styles";
 
 const FeaturedCompanies = () => {
-    const theme = useTheme();
-
-  // Using the useState hook to initialize the featured companies
+  const theme = useTheme();
+  
+    // Using the useState hook to initialize the featured companies
   const [featuredCompanies, setFeaturedCompanies] = useState([]);
 
     // useEffect hook to make the API request
@@ -33,6 +33,15 @@ const FeaturedCompanies = () => {
   const Root = styled(Box)(({ theme }) => ({
     backgroundColor: `${theme.palette.primary.main}`,
     margin: 30,
+    borderRadius:25,
+  }));
+  const CustomButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.info.main,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
+    margin: 10,
   }));
   
 
@@ -81,6 +90,14 @@ const FeaturedCompanies = () => {
             </ListItem>
           ))}
         </List>
+        <CustomButton
+          variant="contained"
+          size="large"
+          component={Link}
+          to="/Companies"
+        >
+          EMPLOYERS
+        </CustomButton>
       </Box>
     </Root>
   );

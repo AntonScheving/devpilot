@@ -8,15 +8,20 @@ export default function CompanyJobs() {
 
   useEffect(() => {
     Axios.get(
-      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${encodeURIComponent(
+      `/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${encodeURIComponent(
         companyName
       )}`
+
+      // `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${encodeURIComponent(
+      //   companyName
+      // )}`
     ).then((response) => {
       const jobLinks = response.data.results.map((job) => ({
         title: job.title,
         url: job.redirect_url,
       }));
       setJobs(jobLinks);
+      console.log(response);
     });
   }, [companyName]);
 
@@ -26,7 +31,7 @@ export default function CompanyJobs() {
       <ul>
         {jobs.map((job, index) => (
           <li key={index}>
-            <a href={job.url} target="_blank" rel="noopener noreferrer">
+            <a href={job.url}>
               {job.title}
             </a>
           </li>

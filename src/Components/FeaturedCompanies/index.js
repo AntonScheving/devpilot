@@ -1,7 +1,9 @@
 import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
-import React, { useState, useEffect }  from 'react'
+import React, { useState, useEffect } from 'react';
 
 const FeaturedCompanies = () => {
+
+
   // Using the useState hook to initialize the featured companies
   const [featuredCompanies, setFeaturedCompanies] = useState([]);
 
@@ -32,10 +34,11 @@ const FeaturedCompanies = () => {
       sx={{
         border: "1px solid red",
         margin: 2,
+        fontFamily: "Segoe UI",
       }}
     >
       <Typography variant="h2"> Top Companies</Typography>
-      <Typography variant="subtitle1">
+      <Typography variant="subtitle1" color="secondary">
         {" "}
         Ranked by job vacancies available
       </Typography>

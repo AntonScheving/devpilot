@@ -1,6 +1,7 @@
 import { Box, List, ListItem, ListItemText, Typography, Button } from '@mui/material';
-import React, { useState, useEffect, Link } from 'react';
+import React, { useState, useEffect} from 'react';
 import { styled, useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const FeaturedCompanies = () => {
   const theme = useTheme();
@@ -94,9 +95,9 @@ const FeaturedCompanies = () => {
           variant="contained"
           size="large"
           component={Link}
-          to="/Companies"
+          to="/companies"
         >
-          EMPLOYERS
+           MORE EMPLOYERS
         </CustomButton>
       </Box>
     </Root>

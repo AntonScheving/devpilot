@@ -1,6 +1,7 @@
 import { Box, List, ListItem, ListItemText, Typography, Button } from "@mui/material";
-import React, { useState, useEffect, Link } from "react";
+import React, { useState, useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 import { formatDistanceToNow } from "date-fns";
 
@@ -85,7 +86,14 @@ const FeaturedListings = () => {
                   textAlign: "center",
                   color: theme.palette.text.tertiary,
                 }}
-                primary={featuredListing.title}
+                primary={
+                  <a
+                    href={featuredListing.redirect_url}
+                    style={{ textDecoration: "none", color: "inherit" }}
+                  >
+                    {featuredListing.title}
+                  </a>
+                }
                 // Format the date string of the `created` property in the `featuredListing` object to relative time "...days ago"
                 // using the `formatDistanceToNow` from date-fns library
                 // https://date-fns.org/v2.29.3/docs/formatDistanceToNow
@@ -103,7 +111,7 @@ const FeaturedListings = () => {
           component={Link}
           to="/jobs"
         >
-          JOBS
+           MORE JOBS
         </CustomButton>
       </Box>
     </Root>

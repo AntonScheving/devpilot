@@ -1,9 +1,10 @@
 import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
-import { useTheme } from "@mui/material/styles";
+
+import { formatDistanceToNow } from "date-fns";
 
 const FeaturedListings = () => {
-  const theme = useTheme();
+
 
   // Using the useState hook to initialize the featured listings
   const [featuredListings, setFeaturedListings] = useState([]);
@@ -29,6 +30,9 @@ const FeaturedListings = () => {
       .catch((error) => console.error(error));
   }, []);
   // Pass an empty array([]) as the second argument to useEffect.This tells React to run the effect only once, when the component is mounted, and not on subsequent re - renders.
+  
+ 
+  
   return (
     <Box
       sx={{
@@ -62,8 +66,13 @@ const FeaturedListings = () => {
                 textAlign: "center",
               }}
               primary={featuredListing.title}
-              secondary={featuredListing.created} 
-              
+              // Format the date string of the `created` property in the `featuredListing` object to relative time "...days ago"
+              // using the `formatDistanceToNow` from date-fns library
+              // https://date-fns.org/v2.29.3/docs/formatDistanceToNow
+              secondary={`Created ${formatDistanceToNow(
+                new Date(featuredListing.created),
+                { addSuffix: true }
+              )}`}
             />
           </ListItem>
         ))}

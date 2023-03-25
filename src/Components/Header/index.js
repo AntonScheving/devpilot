@@ -1,5 +1,5 @@
 import { Typography, Button, IconButton, Drawer, MenuItem } from "@mui/material";
-import { styled } from "@mui/material/styles";
+import { styled, useTheme } from "@mui/material/styles";
 import AppBar from "@mui/material/AppBar";
 import Toolbar from "@mui/material/Toolbar";
 import React from "react";
@@ -37,7 +37,16 @@ const StyledToolbar = styled(Toolbar)({
   justifyContent: "space-between",
 });
 
+const StyledDrawer = styled(Drawer)(({ theme }) => ({
+    "& .MuiPaper-root": {
+        backgroundColor: theme.palette.primary.main,
+        color: "white"
+    },
+}));
+
 export default function Header() {
+    const theme = useTheme();
+    
   const [state, setState] = useState({
     mobileView: false,
     drawerOpen: false,
@@ -89,15 +98,16 @@ export default function Header() {
               <MenuIcon />
             </IconButton>
 
-            <Drawer
+            <StyledDrawer
               {...{
                 anchor: "left",
                 open: drawerOpen,
                 onClose: handleDrawerClose,
+                theme: theme,
               }}
             >
               <div>{getDrawerChoices()}</div>
-            </Drawer>
+            </StyledDrawer>
             <div>{devPilotLogo}</div>
           </Toolbar>
         );
@@ -115,16 +125,18 @@ export default function Header() {
               key: label,
             }}
           >
-            <MenuItem>{label}</MenuItem>
+            <MenuItem style={{ color: "white" }}>{label}</MenuItem>
           </Link>
         );
       });
     };
 
     const devPilotLogo = (
+        <Link to="/" style={{ textDecoration: "none", color: "inherit" }}>
       <Typography variant="h3" component="h1">
         DevPilot
       </Typography>
+        </Link>
     );
 
     const getMenuButtons = () => {

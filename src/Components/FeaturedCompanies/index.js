@@ -1,9 +1,12 @@
-import { Box, List, ListItem, ListItemText, Typography } from '@mui/material';
-import React, { useState, useEffect } from 'react';
+import { Box, List, ListItem, ListItemText, Typography, Button } from '@mui/material';
+import React, { useState, useEffect} from 'react';
+import { styled, useTheme } from "@mui/material/styles";
+import { Link } from "react-router-dom";
 
 const FeaturedCompanies = () => {
-
-  // Using the useState hook to initialize the featured companies
+  const theme = useTheme();
+  
+    // Using the useState hook to initialize the featured companies
   const [featuredCompanies, setFeaturedCompanies] = useState([]);
 
     // useEffect hook to make the API request
@@ -28,47 +31,76 @@ const FeaturedCompanies = () => {
     }, []); 
     // Pass an empty array([]) as the second argument to useEffect.This tells React to run the effect only once, when the component is mounted, and not on subsequent re - renders.
 
+  const Root = styled(Box)(({ theme }) => ({
+    backgroundColor: `${theme.palette.primary.main}`,
+    margin: 30,
+    borderRadius:25,
+  }));
+  const CustomButton = styled(Button)(({ theme }) => ({
+    color: theme.palette.primary.contrastText,
+    backgroundColor: theme.palette.info.main,
+    "&:hover": {
+      backgroundColor: theme.palette.secondary.dark,
+    },
+    margin: 10,
+  }));
+  
+
+  
   return (
-    <Box
-      sx={{
-        border: "1px solid red",
-        margin: 2,
-        fontFamily: "Segoe UI",
-      }}
-    >
-      <Typography variant="h2"> Top Companies</Typography>
-      <Typography variant="subtitle1" color="secondary">
-        {" "}
-        Ranked by job vacancies available
-      </Typography>
-      <List
+    <Root>
+      <Box
         sx={{
-          width: "100%",
-          textAlign: "center",
-        }}
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          justifyContent: "center",
-          textAlign: "center",
+          margin: 2,
+          fontFamily: "Segoe UI",
         }}
       >
-        {featuredCompanies.map((featuredCompany) => (
-          <ListItem key={featuredCompany.canonical_name}>
-            <ListItemText
-              sx={{
-                width: "100%",
-                textAlign: "center",
-              }}
-              primary={featuredCompany.canonical_name}
-              secondary={`${featuredCompany.count} ${
-                featuredCompany.count > 1 ? "Jobs" : "Job"
-              }`}
-            />
-          </ListItem>
-        ))}
-      </List>
-    </Box>
+        <Typography variant="h2" color={theme.palette.text.tertiary}>
+          {" "}
+          Top Companies
+        </Typography>
+        <Typography variant="subtitle1" color="secondary">
+          {" "}
+          Ranked by job vacancies available
+        </Typography>
+        <List
+          sx={{
+            width: "100%",
+            textAlign: "center",
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            textAlign: "center",
+          }}
+        >
+          {featuredCompanies.map((featuredCompany) => (
+            <ListItem key={featuredCompany.canonical_name}>
+              <ListItemText
+                sx={{
+                  width: "100%",
+                  textAlign: "center",
+                  color: theme.palette.text.tertiary,
+                }}
+                primary={featuredCompany.canonical_name}
+                secondary={`${featuredCompany.count} ${
+                  featuredCompany.count > 1 ? "Jobs" : "Job"
+                }`}
+              />
+            </ListItem>
+          ))}
+        </List>
+        <CustomButton
+          variant="contained"
+          size="large"
+          component={Link}
+          to="/companies"
+        >
+           MORE EMPLOYERS
+        </CustomButton>
+      </Box>
+    </Root>
   );
 }
 

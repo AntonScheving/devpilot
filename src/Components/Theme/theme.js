@@ -18,11 +18,12 @@ const theme = createTheme({
     text: {
       primary: "#333652",
       secondary: "#90ADC6",
+      tertiary: "#FAD02C",
     },
   },
   typography: {
     fontFamily: {
-      fontFamily: ["Lato", "Roboto", "Montserrat", '"Segoe UI"'].join(","),
+      fontFamily: 'Lato'
     },
   },
 });

@@ -44,7 +44,7 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
     },
 }));
 
-export default function Header() {
+export default function Navbar() {
     const theme = useTheme();
     
   const [state, setState] = useState({

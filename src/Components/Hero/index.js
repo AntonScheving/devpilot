@@ -10,7 +10,6 @@ const Root = styled(Box)(({ theme }) => ({
   alignItems: "center",
   textAlign: "center",
   height: "150vh",
-  /* padding: "0 20px",*/
 }));
 
 const Image = styled("img")({
@@ -48,21 +47,11 @@ const Hero = () => {
         }}
       >
         <Grid item xs={12} sm={6}>
-          <Image className="hero-img"
+          <Image
+            className="hero-img"
             src={process.env.PUBLIC_URL + "/images/lookingForAJob.jpg"}
-            alt="Image by upklyak on Freepik"
+            alt="Image by pch.vector on Freepik"
           />
-          {/* <Typography variant="caption" sx={{ color: "common.white" }}>
-        Image by{" "}
-        <a
-          href="https://www.freepik.com/free-vector/job-search-banner-we-are-hiring-recruitment-ads_26474572.htm#page=2&position=14&from_view=author"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          upklyak
-        </a>{" "}
-        on Freepik
-      </Typography> */}
         </Grid>
         <Grid item xs={12} sm={6}>
           <div>
@@ -86,7 +75,7 @@ const Hero = () => {
               Discover the perfect job match for your skills and passions
             </Typography>
 
-            <ButtonWrapper className= "button-wrapper">
+            <ButtonWrapper className="button-wrapper">
               <CustomButton
                 variant="contained"
                 size="large"
@@ -108,7 +97,7 @@ const Hero = () => {
         </Grid>
       </Grid>
 
-     { /* media queries added using a <style> tag, breakpoint value is defined the the MUI theme
+      {/* media queries added using a <style> tag, breakpoint value is defined the the MUI theme
      class name added to the MUi components to specify selector */}
       <style>
         {`

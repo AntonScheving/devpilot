@@ -1,7 +1,8 @@
-import { Box, List, ListItem, ListItemText, Typography, Button } from "@mui/material";
+import { Box, List, ListItem, ListItemText, Typography } from "@mui/material";
 import React, { useState, useEffect } from "react";
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { CustomButton } from "../common/CommonButton/CustomButtom";
 
 import { formatDistanceToNow } from "date-fns";
 
@@ -39,16 +40,6 @@ const FeaturedListings = () => {
       margin: 30,
       borderRadius: 25,
     }));
-  
-  const CustomButton = styled(Button)(({ theme }) => ({
-    color: theme.palette.primary.contrastText,
-    backgroundColor: theme.palette.info.main,
-    "&:hover": {
-      backgroundColor: theme.palette.secondary.dark,
-    },
-    margin: 10,
-  }));
- 
   
   return (
     <Root>

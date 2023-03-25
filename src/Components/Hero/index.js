@@ -39,7 +39,7 @@ const Hero = () => {
   const theme = useTheme();
   return (
     // root component: the outermost component that renders a host component
-    <Root>
+    <Root className="hero-root">
       <Grid
         container
         sx={{
@@ -48,7 +48,7 @@ const Hero = () => {
         }}
       >
         <Grid item xs={12} sm={6}>
-          <Image
+          <Image className="hero-img"
             src={process.env.PUBLIC_URL + "/images/lookingForAJob.jpg"}
             alt="Image by upklyak on Freepik"
           />
@@ -86,7 +86,7 @@ const Hero = () => {
               Discover the perfect job match for your skills and passions
             </Typography>
 
-            <ButtonWrapper>
+            <ButtonWrapper className= "button-wrapper">
               <CustomButton
                 variant="contained"
                 size="large"
@@ -95,13 +95,39 @@ const Hero = () => {
               >
                 JOBS
               </CustomButton>
-              <CustomButton variant="contained" size="large" component={Link} to="/Companies" >
+              <CustomButton
+                variant="contained"
+                size="large"
+                component={Link}
+                to="/Companies"
+              >
                 EMPLOYERS
               </CustomButton>
             </ButtonWrapper>
           </div>
         </Grid>
       </Grid>
+
+     { /* media queries added using a <style> tag, breakpoint value is defined the the MUI theme
+     class name added to the MUi components to specify selector */}
+      <style>
+        {`
+    @media (min-width: ${theme.breakpoints.values.md}px) {
+      .hero-root {
+        height: 100vh;
+      }
+      .hero-img {
+        max-width: 80%;
+        max-height: 600px;
+        margin-right: auto;
+        margin-left: 0;
+      }
+      .button-wrapper {
+        margin-top: 80px;
+      }
+    }
+  `}
+      </style>
     </Root>
   );
 };

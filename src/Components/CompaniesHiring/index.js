@@ -12,6 +12,10 @@ import {
   useTheme,
   Box,
   styled,
+  Grid,
+  AppBar,
+  Toolbar,
+  TextField,
 } from "@mui/material";
 
 const Root = styled(Box)(({ theme }) => ({
@@ -22,7 +26,6 @@ const Root = styled(Box)(({ theme }) => ({
   textAlign: "center",
   // height: "130vh",
 }));
-
 
 export default function CompaniesHiring() {
   const [groupedCompanies, setGroupedCompanies] = useState([]);
@@ -58,39 +61,56 @@ export default function CompaniesHiring() {
 
   return (
     <Root className="hero-root">
-      <Container maxWidth="sm">
-        <Typography
-          variant="h2"
-          component="h1"
-          gutterBottom
-          sx={{
-            color: theme.palette.secondary.main,
-            fontWeight: 700,
-            textTransform: "uppercase",
-          }}
-        >
-          Companies Hiring
-        </Typography>
-        <List>
-          {/* Maps through the groupedCompanies array, rendering a element for each company. */}
-          {groupedCompanies.map((company) => (
-            <ListItem
-              key={company.url}
-              component={RouterLink}
-              to={`/CompanyJobs/${encodeURIComponent(company.name)}`}
-              button
-              disableGutters={isMobile}
-            >
-              <ListItemText
-                gutterBottom
-                sx={{ color: "common.white" }}
-                primary={`${company.name} (${company.count})`}
-                primaryTypographyProps={{ variant: "body1" }}
+      <Grid container spacing={2}>
+        <Grid item xs={12} md={3}>
+          <AppBar position="static" color="primary">
+            <Toolbar>
+              <TextField
+                fullWidth
+                label="Search"
+                variant="outlined"
+                color="secondary"
+                size="small"
               />
-            </ListItem>
-          ))}
-        </List>
-      </Container>
+            </Toolbar>
+          </AppBar>
+        </Grid>
+        <Grid item xs={12} md={9}>
+          <Container maxWidth="sm">
+            <Typography
+              variant="h2"
+              component="h1"
+              gutterBottom
+              sx={{
+                color: theme.palette.secondary.main,
+                fontWeight: 700,
+                textTransform: "uppercase",
+              }}
+            >
+              Companies Hiring
+            </Typography>
+            <List>
+              {/* Maps through the groupedCompanies array, rendering a element for each company. */}
+              {groupedCompanies.map((company) => (
+                <ListItem
+                  key={company.url}
+                  component={RouterLink}
+                  to={`/CompanyJobs/${encodeURIComponent(company.name)}`}
+                  button
+                  disableGutters={isMobile}
+                >
+                  <ListItemText
+                    gutterBottom
+                    sx={{ color: "common.white" }}
+                    primary={`${company.name} (${company.count})`}
+                    primaryTypographyProps={{ variant: "body1" }}
+                  />
+                </ListItem>
+              ))}
+            </List>
+          </Container>
+        </Grid>
+      </Grid>
     </Root>
   );
 }

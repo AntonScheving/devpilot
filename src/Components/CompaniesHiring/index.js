@@ -1,11 +1,33 @@
 import React, { useState, useEffect } from "react";
-// Axios ia a HTTP client for making API requests
-import Axios from "axios"; 
-import { Link } from "react-router-dom";
+// // Axios ia a HTTP client for making API requests
+import Axios from "axios";
+import { Link as RouterLink } from "react-router-dom";
+import {
+  Container,
+  List,
+  ListItem,
+  ListItemText,
+  Typography,
+  useMediaQuery,
+  useTheme,
+  Box,
+  styled,
+} from "@mui/material";
+
+const Root = styled(Box)(({ theme }) => ({
+  backgroundColor: `${theme.palette.primary.main}`,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  textAlign: "center",
+  // height: "130vh",
+}));
+
 
 export default function CompaniesHiring() {
-  // const [companies, setCompanies] = useState([]);
   const [groupedCompanies, setGroupedCompanies] = useState([]);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   useEffect(() => {
     Axios.get(
@@ -17,7 +39,6 @@ export default function CompaniesHiring() {
         name: job.company.display_name,
         url: job.redirect_url,
       }));
-      // setCompanies(companyLinks);
       // We use the reduce method to group the job listings by company name, creating an object with each company name as a key and an object containing the job count and a URL as its value.
       const companyGroup = companyLinks.reduce((acc, curr) => {
         acc[curr.name] = acc[curr.name] || { count: 0, url: curr.url };
@@ -36,18 +57,40 @@ export default function CompaniesHiring() {
   }, []);
 
   return (
-    <div>
-      {/* Maps through the groupedCompanies array, rendering a JSX element for each company. */}
-      {groupedCompanies.map((company) => (
-        <div key={company.url}>
-          <Link
-            to={`/CompanyJobs/${encodeURIComponent(company.name)}`}
-            
-          >
-            {company.name} ({company.count})
-          </Link>
-        </div>
-      ))}
-    </div>
+    <Root className="hero-root">
+      <Container maxWidth="sm">
+        <Typography
+          variant="h2"
+          component="h1"
+          gutterBottom
+          sx={{
+            color: theme.palette.secondary.main,
+            fontWeight: 700,
+            textTransform: "uppercase",
+          }}
+        >
+          Companies Hiring
+        </Typography>
+        <List>
+          {/* Maps through the groupedCompanies array, rendering a element for each company. */}
+          {groupedCompanies.map((company) => (
+            <ListItem
+              key={company.url}
+              component={RouterLink}
+              to={`/CompanyJobs/${encodeURIComponent(company.name)}`}
+              button
+              disableGutters={isMobile}
+            >
+              <ListItemText
+                gutterBottom
+                sx={{ color: "common.white" }}
+                primary={`${company.name} (${company.count})`}
+                primaryTypographyProps={{ variant: "body1" }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Container>
+    </Root>
   );
 }

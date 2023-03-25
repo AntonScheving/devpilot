@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Axios from "axios";
 import { useParams } from "react-router-dom";
+import Navbar from "../Components/Navbar";
+
 
 export default function CompanyJobs() {
   const { companyName } = useParams();
@@ -26,17 +28,18 @@ export default function CompanyJobs() {
   }, [companyName]);
 
   return (
-    <div>
-      <h2>{decodeURIComponent(companyName)}</h2>
-      <ul>
-        {jobs.map((job, index) => (
-          <li key={index}>
-            <a href={job.url}>
-              {job.title}
-            </a>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <>
+      <Navbar />
+      <div>
+        <h2>{decodeURIComponent(companyName)}</h2>
+        <ul>
+          {jobs.map((job, index) => (
+            <li key={index}>
+              <a href={job.url}>{job.title}</a>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </>
   );
 }

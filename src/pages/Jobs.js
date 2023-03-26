@@ -1,10 +1,11 @@
 import React from 'react'
-
-feature/style-jobspage
 import Location from '../Components/Location';
+import Navbar from '../Components/Navbar'
 
 import { styled } from "@mui/material/styles";
-import { Grid, Box } from "@mui/material";
+import { Box, Grid } from "@mui/material";
+import JobList from '../Components/JobList';
+
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundColor: `${theme.palette.background.default}`,
@@ -13,25 +14,21 @@ const Root = styled(Box)(({ theme }) => ({
 const Jobs = () => {
   return (
     <Root>
-    <Grid container spacing={2} sx={{}}>
-        <Grid item xs={12} sm={12} md={10}>
-          <Location />
-        </Grid>
+      <Navbar />
+      <Grid container spacing={2} sx={{}} style={{ marginTop: '20px' }}>
+      <Grid item xs={12} md={9}>
+        <JobList/>
       </Grid>
+      <Grid item xs={12} md={3}>
+        <Location />
+      </Grid>
+    </Grid>
+    
     </Root>
 
-import Location from '../Components/Location'
-import Navbar from '../Components/Navbar'
 
-const Jobs = () => {
-  return (
-    <>
-      <Navbar/>
-    <div>
-      <h2>Junior Front-end Developer Jobs:</h2>
-    </div>
-    <Location />
-    </>
+
+
   )
 }
 

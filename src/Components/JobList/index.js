@@ -30,6 +30,7 @@ const JobList = () => {
         }}
       >
         <Typography variant="h2" color={theme.palette.text.tertiary}>
+          {""}
           Junior Front-end Developer Jobs
         </Typography>
 

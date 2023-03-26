@@ -2,7 +2,7 @@ import { Box, List, ListItem, ListItemText, Typography} from '@mui/material';
 import React, { useState, useEffect} from 'react';
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
-import { CustomButton } from "../common/CommonButton/CustomButtom";
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
 const FeaturedCompanies = () => {
   const theme = useTheme();

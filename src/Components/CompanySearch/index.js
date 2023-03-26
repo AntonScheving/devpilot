@@ -1,14 +1,17 @@
 import React, { useState } from "react";
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
-const CompanySearch = ({ onSearch = handleLocationSearch }) => {
+const CompanySearch = ({ onSearch }) => {
   const [search, setSearch] = useState("");
 
   const handleSearch = (event) => {
     const value = event.target.value;
     setSearch(value);
+  };
 
+  const handleButtonClick = () => {
     if (onSearch) {
-      onSearch(value);
+      onSearch(search);
     }
   };
 
@@ -21,6 +24,7 @@ const CompanySearch = ({ onSearch = handleLocationSearch }) => {
           onChange={handleSearch}
           placeholder="Search location"
         />
+        <CustomButton onClick={handleButtonClick}>Search</CustomButton>
       </div>
     </div>
   );

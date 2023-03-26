@@ -29,7 +29,9 @@ const JobList = () => {
           fontFamily: `{'Lato', sans-serif;}`,
         }}
       >
-        <Typography variant="h2" color={theme.palette.text.tertiary}>
+        <Typography variant="h2" 
+        mb={2}
+        color={theme.palette.text.tertiary}>
           {""}
           Junior Front-end Developer Jobs
         </Typography>

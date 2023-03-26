@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Card,List, ListItemText } from "@mui/material";
 import TextField from '@mui/material/TextField';
 
 import {  useTheme } from "@mui/material/styles";
@@ -35,8 +35,12 @@ const fetchData = async () => {
     <>
     <Box
     sx={{
+          backgroundColor: theme.palette.primary.main,
           margin: 4,
+          borderRadius: 5,
+          height: "100%",
           fontFamily: `{'Lato', sans-serif;}`,
+          alignItems: "center",
         }}
       >
       <Typography variant="h4" 
@@ -50,8 +54,8 @@ const fetchData = async () => {
           label="Jobs by Location"
           type="search"
           value={location}
-        onChange={handleSearch}
-        onKeyPress={(event) => {
+          onChange={handleSearch}
+          onKeyPress={(event) => {
           if (event.key === 'Enter') {
             fetchData();
           }
@@ -61,19 +65,48 @@ const fetchData = async () => {
         
           {/* // conditional render which happens if the apiData array is empty n JobList comp renders  */}
           {!apiData.length && <JobList />} 
+          <List
+          sx={{
+            width: "100%",
+            textAlign: "center",
+          }}
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
         {apiData.map((job) => (
-            <div key={job.id}>
-                <div>
-                    <a href={job.redirect_url}>
-                    <h3>{job.title}</h3></a>
-                    <p>{job.company.display_name}</p>
-                </div>
-            </div>
-            
-            
+          <Card
+            variant="outlined"
+            orientation="horizontal"
+            sx={{
+              width: "50%",
+              height: 80,
+            }}
+            key={job.id}
+          >
+            <ListItemText
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: theme.palette.text.tertiary,
+              }}
+              primary={
+              <a href={job.redirect_url}
+                style={{ textDecoration: "none", color: "inherit" }}
+                >
+                  {job.title}
+                  </a>
+            } 
+            secondary={`Company: ${job.company.display_name},  
+               Location: ${job.location.display_name}, Salary: ${job.salary_min}`}
+            />
+          </Card>
         ))}
-        
-      </Box>
+        </List>
+        </Box>
     </>
   )
 }

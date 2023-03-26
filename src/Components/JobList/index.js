@@ -3,7 +3,7 @@ import { Box, Card, ListItemText, Typography } from "@mui/material";
 
 import { styled, useTheme } from "@mui/material/styles";
 
-const JobList = (historyNav) => {
+const JobList = () => {
   const theme = useTheme();
   const [jobs, setJobs] = useState([]);
 

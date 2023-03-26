@@ -9,9 +9,9 @@ const Root = styled(Box)(({ theme }) => ({
   backgroundColor: `${theme.palette.background.default}`,
 }));
 
-const HistoryNav = {
-  showHistory: function (location) { },
-  searchHistory: function (location) { },
+const searchHistoryManager = {
+  visitHistoryItem: function (location) { },
+  saveHistoryItem: function (location) { },
 }
 
 const WrapLocJoblist = () => {
@@ -19,11 +19,11 @@ const WrapLocJoblist = () => {
     <Root>
       <Grid container spacing={2} style={{ marginTop: "20px" }}>
         <Grid>
-          <SearchHistory historyNav={HistoryNav} />
+          <SearchHistory searchHistoryManager={searchHistoryManager} />
         </Grid>
 
         <Grid item xs={12} md={10}>
-          <Location historyNav={HistoryNav} />
+          <Location searchHistoryManager={searchHistoryManager} />
         </Grid>
       </Grid>
     </Root>

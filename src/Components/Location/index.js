@@ -5,12 +5,12 @@ import TextField from "@mui/material/TextField";
 import { useTheme } from "@mui/material/styles";
 import JobList from "../JobList";
 
-const Location = ({ historyNav }) => {
+const Location = ({ searchHistoryManager }) => {
   const theme = useTheme();
   const [location, setLocation] = useState("");
   const [apiData, setApiData] = useState([]);
 
-  historyNav.showHistory = setLocation;
+  searchHistoryManager.visitHistoryItem = setLocation;
 
   const handleSearch = (e) => {
     console.log("handleSearch called");
@@ -58,7 +58,7 @@ const Location = ({ historyNav }) => {
           onChange={handleSearch}
           onKeyPress={(event) => {
             if (event.key === "Enter") {
-              historyNav.searchHistory(location);
+              searchHistoryManager.saveHistoryItem(location);
               fetchData();
             }
           }}

@@ -2,13 +2,13 @@ import React, { useState, useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
 import { List, ListItem, ListItemText, Typography } from "@mui/material";
 
-const SearchHistory = ({ historyNav }) => {
+const SearchHistory = ({ searchHistoryManager }) => {
     const theme = useTheme();
     // create a useState for the search history
     const [searchHistory, setSearchHistory] = useState([]);
     const [location, setLocation] = useState("");
     
-    historyNav.searchHistory = setLocation;
+    searchHistoryManager.saveHistoryItem = setLocation;
 
   // get the search history from local storage, or use an empty array if it doesn't exist yet
   useEffect(() => {
@@ -42,7 +42,7 @@ const SearchHistory = ({ historyNav }) => {
       <List>
         {searchHistory.map((search, index) => (
           <ListItem key={index}>
-            <ListItemText primary={search} onClick={() => historyNav.showHistory(search)} />
+            <ListItemText primary={search} onClick={() => searchHistoryManager.showHistory(search)} />
           </ListItem>
         ))}
       </List>

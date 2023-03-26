@@ -20,7 +20,7 @@ const fetchData = async () => {
     <>
     <div>
      {/* // conditional render which happens if the apiData array is empty n JobList comp renders  */}
-      {!apiData.length && <JobList />}
+      {/* {apiData.length === 0 && <JobList />} */}
         <input type="text"
         placeholder='Location'
         value={location}

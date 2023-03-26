@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import JobList from '../JobList';
+// import JobList from '../JobList';
 
 const Location = () => {
     const [location, setLocation] = useState('');

@@ -1,7 +1,8 @@
 import React from 'react'
 import { useState } from "react";
-import { TextField, Button, Box, Grid, Typography } from "@mui/material";
-import {  useTheme } from "@mui/material/styles";
+import { Button, TextField, Box, Grid, Typography } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
+
 
 const ContactForm = () => {
   const theme = useTheme();
@@ -41,19 +42,20 @@ const ContactForm = () => {
 
   // return the form UI, with responsivness added
   return (
-    <Box component="form" onSubmit={handleSubmit}>
+    <Box component="form" onSubmit={handleSubmit} sw={{ margin: 4 }}>
       <Typography
         variant="h4"
-        gutterBottom
         color={theme.palette.text.tertiary}
-        fontWeight={700}
+        backgroundColor={theme.palette.primary.main}
+        fontWeight={600}
       >
-        Apply Now
+        Contact Us
       </Typography>
       <Typography
         variant="body1"
         gutterBottom
         color={theme.palette.text.tertiary}
+        backgroundColor={theme.palette.primary.main}
       >
         Fill in the form below to receive more information about DevPilot.
       </Typography>

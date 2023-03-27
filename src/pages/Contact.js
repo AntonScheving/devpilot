@@ -7,8 +7,10 @@ const Contact = () => {
   return (
     <>
       <Navbar />
-      <Box sx={{ pt: 20 }}>
-        <ContactForm />
+      <Box sx={{ py: 20, bgcolor: "#E9EAEC" }}>
+        <Box sx={{ m: "20px", bgcolor: "#ffffff" }}>
+          <ContactForm />
+        </Box>
       </Box>
     </>
   );

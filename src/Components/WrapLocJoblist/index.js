@@ -17,12 +17,21 @@ const searchHistoryManager = {
 const WrapLocJoblist = () => {
   return (
     <Root>
-      <Grid container spacing={2} style={{ marginTop: "20px" }}>
+      <Grid
+        container
+        spacing={2}
+        style={{ marginTop: "40px" }}
+      >
         <Grid item xs={12} md={2}>
           <SearchHistory searchHistoryManager={searchHistoryManager} />
         </Grid>
 
-        <Grid item xs={12} md={10}>
+        <Grid
+          item
+          xs={12}
+          md={10}
+          style={{ marginBottom: "40px" }}
+        >
           <Location searchHistoryManager={searchHistoryManager} />
         </Grid>
       </Grid>

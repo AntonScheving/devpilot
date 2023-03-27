@@ -5,7 +5,7 @@ import Navbar from "../Components/Navbar";
 const CompaniesPage = () => {
   return (
     <>
-      <Navbar/>
+      {/* <Navbar/> */}
       <CompaniesHiring />
   
     </>

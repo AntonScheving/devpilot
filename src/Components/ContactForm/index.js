@@ -44,10 +44,10 @@ const ContactForm = () => {
   return (
     <Box component="form" onSubmit={handleSubmit} sw={{ margin: 4 }}>
       <Typography
-        variant="h4"
+        variant="h2"
         color={theme.palette.text.tertiary}
-        backgroundColor={theme.palette.primary.main}
-        fontWeight={600}
+        // backgroundColor={theme.palette.primary.main}
+        fontWeight={300}
       >
         Contact Us
       </Typography>
@@ -55,12 +55,12 @@ const ContactForm = () => {
         variant="body1"
         gutterBottom
         color={theme.palette.text.tertiary}
-        backgroundColor={theme.palette.primary.main}
+        // backgroundColor={theme.palette.primary.main}
       >
         Fill in the form below to receive more information about DevPilot.
       </Typography>
       <Grid container spacing={2}>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} sx={{ mx: 2 }}>
           <TextField
             label="Name"
             name="name"
@@ -68,9 +68,12 @@ const ContactForm = () => {
             onChange={handleChange}
             fullWidth
             required
+            InputProps={{
+              style: { backgroundColor: "#FFFFFF" },
+            }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} sx={{ mx: 2 }}>
           <TextField
             label="Email"
             name="email"
@@ -78,9 +81,12 @@ const ContactForm = () => {
             onChange={handleChange}
             fullWidth
             required
+            InputProps={{
+              style: { backgroundColor: "#FFFFFF" },
+            }}
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} sx={{ mx: 2 }}>
           <TextField
             label="Phone"
             name="phone"
@@ -88,10 +94,13 @@ const ContactForm = () => {
             onChange={handleChange}
             fullWidth
             required
+            InputProps={{
+              style: { backgroundColor: "#FFFFFF" },
+            }}
           />
         </Grid>
 
-        <Grid item xs={12}>
+        <Grid item xs={12} sx={{ mx: 2 }}>
           <TextField
             label="Message"
             name="message"
@@ -101,13 +110,16 @@ const ContactForm = () => {
             rows={4}
             fullWidth
             required
+            InputProps={{
+              style: { backgroundColor: "#FFFFFF" },
+            }}
           />
         </Grid>
-        <Grid item xs={12}>
-          <Button type="submit" variant="contained" fullWidth>
-            Submit
-          </Button>
-        </Grid>
+      </Grid>
+      <Grid item xs={12} margin="20">
+        <Button type="submit" variant="contained" fullWidth>
+          Submit
+        </Button>
       </Grid>
     </Box>
   );

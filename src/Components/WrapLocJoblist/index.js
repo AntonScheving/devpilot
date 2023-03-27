@@ -18,7 +18,7 @@ const WrapLocJoblist = () => {
   return (
     <Root>
       <Grid container spacing={2} style={{ marginTop: "20px" }}>
-        <Grid>
+        <Grid item xs={12} md={2}>
           <SearchHistory searchHistoryManager={searchHistoryManager} />
         </Grid>
 

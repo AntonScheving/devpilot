@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useTheme } from "@mui/material/styles";
-import { List, ListItem, ListItemText, Typography } from "@mui/material";
+import { List, ListItem, ListItemText, Typography, Box } from "@mui/material";
 
 const SearchHistory = ({ searchHistoryManager }) => {
     const theme = useTheme();
@@ -36,16 +36,34 @@ const SearchHistory = ({ searchHistoryManager }) => {
 
   return (
     <div>
-      <Typography variant="h2" color={theme.palette.text.tertiary}>
-        Search history:
-      </Typography>
-      <List>
-        {searchHistory.map((search, index) => (
-          <ListItem key={index}>
-            <ListItemText primary={search} onClick={() => searchHistoryManager.showHistory(search)} />
-          </ListItem>
-        ))}
-      </List>
+      <Box
+        sx={{
+          backgroundColor: theme.palette.primary.main,
+
+          marginTop: 4,
+          mx: 4,
+          borderRadius: 5,
+          height: "100%",
+          maxWidth: "100%",
+          fontFamily: `{'Lato', sans-serif;}`,
+          alignItems: "center",
+        }}
+      >
+        <Typography variant="h4" color={theme.palette.text.tertiary}>
+          Search History:
+        </Typography>
+        <List>
+          {searchHistory.map((search, index) => (
+            <ListItem key={index}>
+              <ListItemText
+                primary={search}
+                onClick={() => searchHistoryManager.visitHistoryItem(search)}
+                style={{ color: "#90ADC6", textAlign: "center" }}
+              />
+            </ListItem>
+          ))}
+        </List>
+      </Box>
     </div>
   );
 };

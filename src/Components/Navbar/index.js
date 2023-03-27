@@ -10,7 +10,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 const headersData = [
   {
     label: "Jobs",
-    href: "./jobs",
+    href: "/jobs",
   },
   {
     label: "Companies",
@@ -18,11 +18,11 @@ const headersData = [
   },
   {
     label: "About",
-    href: "./about",
+    href: "/about",
   },
   {
-    label: "Contact us",
-    href: "./contact",
+    label: "Contact",
+    href: "/Contact",
   },
 ];
 

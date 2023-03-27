@@ -2,6 +2,7 @@ import React from "react";
 import FeaturedGrid from "../Components/FeaturedGrid";
 import Navbar from "../Components/Navbar";
 import Hero from "../Components/Hero";
+import Footer from "../Components/Footer";
 
 const Home = () => {
   return (
@@ -9,6 +10,7 @@ const Home = () => {
       <Navbar />
       <Hero />
       <FeaturedGrid />
+      <Footer />
     </div>
   );
 };

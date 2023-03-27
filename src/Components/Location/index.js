@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+
+import JobList from "../JobList";
+
 import { Box, Typography, Card, List, ListItemText } from "@mui/material";
 import TextField from "@mui/material/TextField";
 
 import { useTheme } from "@mui/material/styles";
-import JobList from "../JobList";
 
 const Location = ({ searchHistoryManager }) => {
   const theme = useTheme();
@@ -50,8 +52,8 @@ const Location = ({ searchHistoryManager }) => {
           {""}
           Filter/Search
         </Typography>
+
         <TextField
-          id="outlined-search"
           label="Jobs by Location"
           type="search"
           value={location}

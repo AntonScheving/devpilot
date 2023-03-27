@@ -9,7 +9,7 @@ import Axios from "axios";
 import { useParams } from "react-router-dom";
 // import Navbar from "../Components/Navbar";
 
-import { Box, styled, useMediaQuery, useTheme,} from "@mui/material";
+import { Box, styled, useMediaQuery, useTheme } from "@mui/material";
 
 // Defines a Root styled-component that wraps around the page and uses the Material-UI Box component and applies custom styles to it
 const Root = styled(Box)(({ theme }) => ({
@@ -31,12 +31,11 @@ function getCompanyJobsUrl(companyName) {
     "what=Front%20end%20developer",
     "what_or=Front%20end%20web%20developer",
     "what_exclude=senior",
-    `employer=${encodedCompanyName}`,
+    // `company=Adria Solutions`,
   ].join("&");
 
-return `/v1/api/jobs/gb/search/1?${queryParams}`;
+  return `/api/jobs/gb/search/1?${queryParams}`;
 }
-
 
 export default function CompanyJobs() {
   // Sets the companyName URL parameter using the useParams hook.
@@ -51,7 +50,12 @@ export default function CompanyJobs() {
     const fetchCompanyJobs = async () => {
       try {
         const url = getCompanyJobsUrl(companyName);
-        const response = await Axios.get(url);
+        const response = await Axios.get(url, {
+           headers: {
+            
+             "content-type": "application/json"
+           }
+        });
         const jobLinks = response.data.results.map((job) => ({
           title: job.title,
           url: job.redirect_url,

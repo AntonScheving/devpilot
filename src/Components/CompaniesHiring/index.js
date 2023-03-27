@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
+// Imports the CompanySearch component
 import CompanySearch from "../CompanySearch";
 import Navbar from "../Navbar";
 
 // // Axios ia a HTTP client for making API requests
 import Axios from "axios";
+// Imports the Link component from react-router-dom and renames it to RouterLink
 import { Link as RouterLink } from "react-router-dom";
 import {
   Container,
@@ -33,6 +35,7 @@ const Root = styled(Box)(({ theme }) => ({
 export default function CompaniesHiring() {
   const [groupedCompanies, setGroupedCompanies] = useState([]);
   const theme = useTheme();
+  // Determines whether the viewport is in a mobile size using the useMediaQuery hook from Material-UI.
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
   useEffect(() => {

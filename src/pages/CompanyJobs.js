@@ -1,5 +1,7 @@
 // The CompanyJobs component is displaying a list of job titles and their corresponding URLs based on the provided companyName. It fetches job data from the Adzuna API, and then renders the list of jobs
 
+// Render companyJobs
+
 import React, { useState, useEffect } from "react";
 // Axios, a library for making HTTP requests
 import Axios from "axios";
@@ -16,8 +18,24 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "bottom",
-  height: "265vh",
+  // height: "265vh",
 }));
+
+function getCompanyJobsUrl(companyName) {
+  const filteredCompanyName = companyName.replace(/[&]/g, "");
+  const encodedCompanyName = encodeURIComponent(filteredCompanyName);
+  const queryParams = [
+    "app_id=6c3aabdd",
+    "app_key=965a2d73c4df5e1c3f1e7c86b9b50096",
+    "results_per_page=45",
+    "what=Front%20end%20developer",
+    "what_or=Front%20end%20web%20developer",
+    "what_exclude=senior",
+    `employer=${encodedCompanyName}`,
+  ].join("&");
+
+return `/v1/api/jobs/gb/search/1?${queryParams}`;
+}
 
 
 export default function CompanyJobs() {
@@ -30,20 +48,22 @@ export default function CompanyJobs() {
 
   // Sets up the useEffect hook that runs when the component loads or when companyName changes. The useEffect fetches job data from the Adzuna API using Axios and updates the jobs state with the fetched data
   useEffect(() => {
-    Axios.get(
-      // `/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${companyName}`
+    const fetchCompanyJobs = async () => {
+      try {
+        const url = getCompanyJobsUrl(companyName);
+        const response = await Axios.get(url);
+        const jobLinks = response.data.results.map((job) => ({
+          title: job.title,
+          url: job.redirect_url,
+        }));
+        setJobs(jobLinks);
+        console.log(response);
+      } catch (error) {
+        console.error("Error fetching company jobs:", error);
+      }
+    };
 
-      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${encodeURIComponent(
-        companyName
-      )}`
-    ).then((response) => {
-      const jobLinks = response.data.results.map((job) => ({
-        title: job.title,
-        url: job.redirect_url,
-      }));
-      setJobs(jobLinks);
-      console.log(response);
-    });
+    fetchCompanyJobs();
   }, [companyName]);
 
   return (

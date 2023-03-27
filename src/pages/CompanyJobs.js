@@ -1,4 +1,4 @@
-// The CompanyJobs component is displaying a list of job titles and their corresponding URLs based on the provided companyName. It fetches job data from the Adzuna API, and then renders the list of jobs.
+// The CompanyJobs component is displaying a list of job titles and their corresponding URLs based on the provided companyName. It fetches job data from the Adzuna API, and then renders the list of jobs
 
 import React, { useState, useEffect } from "react";
 // Axios, a library for making HTTP requests
@@ -9,7 +9,7 @@ import { useParams } from "react-router-dom";
 
 import { Box, styled, useMediaQuery, useTheme,} from "@mui/material";
 
-// Defines a Root styled-component that wraps around the page and uses the Material-UI Box component and applies custom styles to it.
+// Defines a Root styled-component that wraps around the page and uses the Material-UI Box component and applies custom styles to it
 const Root = styled(Box)(({ theme }) => ({
   backgroundColor: `${theme.palette.primary.main}`,
   display: "flex",
@@ -25,10 +25,10 @@ export default function CompanyJobs() {
   const { companyName } = useParams();
   const [jobs, setJobs] = useState([]);
   const theme = useTheme();
-  // isMobile determines whether the viewport is in a mobile size using the useMediaQuery hook from Material-UI.
+  // isMobile determines whether the viewport is in a mobile size using the useMediaQuery hook from Material-UI
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
-  // Sets up the useEffect hook that runs when the component loads or when companyName changes. The useEffect fetches job data from the Adzuna API using Axios and updates the jobs state with the fetched data.
+  // Sets up the useEffect hook that runs when the component loads or when companyName changes. The useEffect fetches job data from the Adzuna API using Axios and updates the jobs state with the fetched data
   useEffect(() => {
     Axios.get(
       // `/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=45&what=Front%20end%20developer&what_or=Front%20end%20web%20developer&what_exclude=senior&company=${companyName}`

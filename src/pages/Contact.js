@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from '../Components/Navbar';
 import ContactForm from "../Components/ContactForm";
 import Box from "@mui/material/Box";
+import Footer from '../Components/Footer';
 
 
 
@@ -16,6 +17,7 @@ const Contact = () => {
           <ContactForm />
         </Box>
       </Box>
+      <Footer />
     </>
   );
 }

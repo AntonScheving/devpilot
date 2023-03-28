@@ -47,6 +47,7 @@ const StyledDrawer = styled(Drawer)(({ theme }) => ({
   "& .MuiPaper-root": {
     backgroundColor: theme.palette.primary.main,
     color: "white",
+    borderRadius: '0 25px 25px 0'
   },
 }));
 

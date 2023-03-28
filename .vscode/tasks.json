@@ -1,0 +1,16 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "npm",
+			"script": "start",
+			"path": "src",
+			"problemMatcher": [
+				"$tsc-watch"
+			],
+			"label": "npm: start - devpilot",
+			"detail": "react-scripts start",
+			"isBackground": true
+		}
+	]
+}

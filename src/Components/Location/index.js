@@ -7,10 +7,12 @@ import TextField from "@mui/material/TextField";
 
 import { useTheme } from "@mui/material/styles";
 
-const Location = () => {
+const Location = ({ searchHistoryManager }) => {
   const theme = useTheme();
   const [location, setLocation] = useState("");
   const [apiData, setApiData] = useState([]);
+
+  searchHistoryManager.visitHistoryItem = setLocation;
 
   const handleSearch = (e) => {
     console.log("handleSearch called");
@@ -58,6 +60,7 @@ const Location = () => {
           onChange={handleSearch}
           onKeyPress={(event) => {
             if (event.key === "Enter") {
+              searchHistoryManager.saveHistoryItem(location);
               fetchData();
             }
           }}
@@ -65,9 +68,7 @@ const Location = () => {
         />
 
         {/* // conditional render which happens if the apiData array is empty n JobList comp renders  */}
-
         {!apiData.length && <JobList />}
-
         <List
           sx={{
             width: "100%",

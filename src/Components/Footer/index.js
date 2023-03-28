@@ -1,12 +1,7 @@
 import React from 'react'
 import { ThemeProvider, Typography, Box} from '@mui/material';
-
 import { useTheme } from '@emotion/react';
 
-
-
-
-  
 
 const Footer = () => {
  
@@ -21,9 +16,7 @@ const Footer = () => {
       display: 'flex',
       alignItems: 'center',
       justifyContent: 'center',
-      position: 'relative',
-      
-      
+      position: 'relative',     
     }}
     
     >
@@ -31,7 +24,6 @@ const Footer = () => {
        gutterBottom>
         &copy; 2023: Made by Anton, Maud & Vinita
       </Typography>
-      
     </Box>
     </ThemeProvider>
   )

@@ -43,6 +43,15 @@ const ContactForm = () => {
   // return the form UI, with responsivness added
   return (
     <Box component="form" onSubmit={handleSubmit} sw={{ margin: 4 }}>
+      <style>
+        {`@media (min-width: 768px) {
+    form {
+      width: 33%;
+      margin: 0 auto;
+    }
+  }
+  `}
+      </style>
       <Typography
         variant="h2"
         color={theme.palette.text.tertiary}

@@ -43,7 +43,7 @@ const FeaturedCompanies = () => {
       <Box
         sx={{
           margin: 2,
-          fontFamily: "Segoe UI",
+          fontFamily: `{'Lato', sans-serif;}`,
         }}
       >
         <Typography variant="h2" color={theme.palette.text.tertiary}>
@@ -88,7 +88,7 @@ const FeaturedCompanies = () => {
           component={Link}
           to="/companies"
         >
-           MORE EMPLOYERS
+          MORE EMPLOYERS
         </CustomButton>
       </Box>
     </Root>

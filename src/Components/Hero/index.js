@@ -9,7 +9,7 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  height: "150vh",
+  height: "90vh",
 }));
 
 const Image = styled("img")({
@@ -103,7 +103,7 @@ const Hero = () => {
         {`
     @media (min-width: ${theme.breakpoints.values.md}px) {
       .hero-root {
-        height: 100vh;
+        height: 50vh;
       }
       .hero-img {
         max-width: 80%;

@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Box, Button, Typography } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(0deg, ${theme.palette.background.default} 22%, ${theme.palette.primary.main} 90%)`, // Set the background gradient colors
@@ -9,7 +10,7 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  height: "90vh",
+  height: "100vh",
 }));
 
 const Image = styled("img")({
@@ -24,15 +25,6 @@ const ButtonWrapper = styled("div")({
   alignItems: "center",
   marginTop: "50px",
 });
-
-const CustomButton = styled(Button)(({ theme }) => ({
-  marginRight: "10px",
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.info.main,
-  "&:hover": {
-    backgroundColor: theme.palette.secondary.dark,
-  },
-}));
 
 const Hero = () => {
   const theme = useTheme();

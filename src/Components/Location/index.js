@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, {  useState } from "react";
 import JobList from "../JobList";
 
 import { Box, Typography, Card, List, CardContent } from "@mui/material";
@@ -13,27 +13,19 @@ const Location = ({ searchHistoryManager }) => {
   searchHistoryManager.visitHistoryItem = setLocation;
 
   const handleSearch = (e) => {
-    console.log("handleSearch called");
     const userInput = e.target.value;
     setLocation(userInput);
   };
 
-  const fetchData = async () => {
+  const fetchData = () => {
     console.log("fetchData called");
-    const response = await fetch(
-      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=0f15a296c6a265d2e7c0fb2fbe7cb467&results_per_page=10&what=junior%20developer&where=${location}`
-    );
-    const data = await response.json();
-    setApiData(data.results);
+    fetch(
+      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=0f15a296c6a265d2e7c0fb2fbe7cb467&results_per_page=50&what=junior%20Frontend%20developer&where=${location}`
+    )
+    .then((response) => response.json())
+    .then((data) => setApiData(data.results))
+    .catch((error) => console.error(error));
   };
-
-  // const Root = styled(Box)(({ theme }) => ({
-  //     backgroundColor: `${theme.palette.primary.main}`,
-  //     margin: 30,
-  //     borderRadius: 25,
-  //     height: "100%",
-  //   }));
-
   return (
     <>
       <Box
@@ -57,8 +49,9 @@ const Location = ({ searchHistoryManager }) => {
           onChange={handleSearch}
           onKeyPress={(event) => {
             if (event.key === "Enter") {
-              searchHistoryManager.saveHistoryItem(location);
+              searchHistoryManager.saveHistoryItem(location)
               fetchData();
+              setLocation("");
             }
           }}
           InputProps={{ style: { backgroundColor: "#f0f0f0" } }}

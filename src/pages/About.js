@@ -1,13 +1,13 @@
 import React from 'react'
-import Navbar from '../Components/Navbar';
+import About from "../Components/About";
 
-const About = () => {
+const CompaniesPage = () => {
   return (
     <>
-      <Navbar/>
-      <div>About</div>
+      <About />
+  
     </>
   );
-}
+};
 
-export default About;
+export default CompaniesPage;

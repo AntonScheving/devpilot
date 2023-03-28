@@ -95,7 +95,7 @@ const Hero = () => {
         {`
     @media (min-width: ${theme.breakpoints.values.md}px) {
       .hero-root {
-        height: 50vh;
+        height: 70vh;
       }
       .hero-img {
         max-width: 80%;

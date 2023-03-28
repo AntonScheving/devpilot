@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-
 import JobList from "../JobList";
 
-import { Box, Typography, Card, List, ListItemText } from "@mui/material";
+import { Box, Typography, Card, List, CardContent } from "@mui/material";
 import TextField from "@mui/material/TextField";
-
 import { useTheme } from "@mui/material/styles";
 
 const Location = ({ searchHistoryManager }) => {
@@ -49,11 +47,10 @@ const Location = ({ searchHistoryManager }) => {
         }}
       >
         <Typography variant="h4" mb={1} color={theme.palette.text.tertiary}>
-          {""}
           Filter/Search
         </Typography>
-
         <TextField
+          id="outlined-search"
           label="Jobs by Location"
           type="search"
           value={location}
@@ -69,6 +66,7 @@ const Location = ({ searchHistoryManager }) => {
 
         {/* // conditional render which happens if the apiData array is empty n JobList comp renders  */}
         {!apiData.length && <JobList />}
+        
         <List
           sx={{
             width: "100%",
@@ -82,22 +80,25 @@ const Location = ({ searchHistoryManager }) => {
           }}
         >
           {apiData.map((job) => (
+            
             <Card
               variant="outlined"
               orientation="horizontal"
               sx={{
-                width: "50%",
+                width: "80%",
                 height: 80,
               }}
               key={job.id}
             >
-              <ListItemText
-                sx={{
-                  width: "100%",
-                  textAlign: "center",
-                  color: theme.palette.text.tertiary,
-                }}
-                primary={
+              <CardContent>
+              <Typography
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: theme.palette.text.tertiary,
+                fontWeight: "600"
+              }}>
+              {
                   <a
                     href={job.redirect_url}
                     style={{ textDecoration: "none", color: "inherit" }}
@@ -105,9 +106,15 @@ const Location = ({ searchHistoryManager }) => {
                     {job.title}
                   </a>
                 }
-                secondary={`Company: ${job.company.display_name},  
+                </Typography>
+                <Typography 
+                sx={{
+                color: theme.palette.text.secondary,
+              }}>
+                {`Company: ${job.company.display_name},  
                Location: ${job.location.display_name}, Salary: ${job.salary_min}`}
-              />
+              </Typography>
+              </CardContent>
             </Card>
           ))}
         </List>

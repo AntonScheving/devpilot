@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Box, Card, ListItemText, Typography } from "@mui/material";
+import { Box, Card, CardContent, Typography } from "@mui/material";
 
 import { styled, useTheme } from "@mui/material/styles";
 
@@ -25,14 +25,15 @@ const JobList = () => {
     <Root>
       <Box
         sx={{
-          margin: 2,
           fontFamily: `{'Lato', sans-serif;}`,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
         }}
       >
         <Typography variant="h2" 
         mb={2}
         color={theme.palette.text.tertiary}>
-          {""}
           Junior Front-end Developer Jobs
         </Typography>
 
@@ -41,18 +42,20 @@ const JobList = () => {
             variant="outlined"
             orientation="horizontal"
             sx={{
-              width: "100%",
+              width: "80%",
               height: 100,
             }}
             key={item.id}
           >
-            <ListItemText
+            <CardContent>
+              <Typography
               sx={{
                 width: "100%",
                 textAlign: "center",
                 color: theme.palette.text.tertiary,
-              }}
-              primary={
+                fontWeight: "600"
+              }}>
+              {
                 <a
                   href={item.redirect_url}
                   style={{ textDecoration: "none", color: "inherit" }}
@@ -60,9 +63,15 @@ const JobList = () => {
                   {item.title}
                 </a>
               }
-              secondary={`Company: ${item.company.display_name},  
+              </Typography>
+              <Typography
+              sx={{
+                color: theme.palette.text.secondary,
+              }}>
+                {`Company: ${item.company.display_name},  
                Location: ${item.location.display_name}, Salary: ${item.salary_min}`}
-            />
+               </Typography>
+            </CardContent>
           </Card>
         ))}
       </Box>

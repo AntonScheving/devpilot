@@ -9,7 +9,7 @@ const JobList = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=50&what=Junior%20front-end%20developer&what_exclude=senior%20lead%20&salary_max=50000"
+      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=50&what=Junior%20front-end%20developer&what_exclude=senior"
     )
       .then((response) => response.json())
       .then((data) => setJobs(data.results))

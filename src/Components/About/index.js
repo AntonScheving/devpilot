@@ -1,7 +1,5 @@
 import React from "react";
 import Navbar from "../Navbar";
-import Footer from "../Footer";
-
 
 import {
   Typography,
@@ -23,27 +21,26 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "bottom",
-  height: "75vh",
   paddingLeft: "10%",
-  paddingRight: "10%"
+  paddingRight: "10%",
 }));
 
 const teamMembers = [
   {
     name: "Maud Mainnemard",
-    bio: "Front-end Developer",
+    bio: "Front-end developer in the making, currently taking part in a bootcamp in the hope to start a career in Tech. I am not sure where the road will lead so keep in touch to find out.",
     github: "https://github.com/maudmain",
-    linkedin: "https://www.linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/maud-mainnemard/",
   },
   {
     name: "Vinita Yadav",
-    bio: "Front-end Developer",
+    bio: "Having certification in Front end web development by edX bootcamp, I am looking for the opportunities to start my career in Tech. Happy to make new connections.",
     github: "https://github.com/Vinita686",
-    linkedin: "https://www.linkedin.com/in/",
+    linkedin: "https://www.linkedin.com/in/yadav-vinita/",
   },
   {
     name: "Anton Scheving",
-    bio: "Front-end Developer",
+    bio: "As a dedicated front-end developer, I am passionate about creating appealing and user-friendly websites. With a keen eye for detail and a strong foundation in coding, I strive to contribute to innovative projects and support businesses in their digital journey.",
     github: "https://github.com/AntonScheving",
     linkedin: "https://www.linkedin.com/in/antonscheving/",
   },
@@ -57,70 +54,93 @@ function About() {
     <>
       <Navbar />
       <Root className="hero-root">
-        <Grid>
-          <Typography
-            variant="h1"
-            component="h1"
-            style={{ marginBottom: "24px" }}
-          >
-            About
-          </Typography>
-          <Typography
-            variant="body1"
-            component="p"
-            style={{ marginBottom: "40px" }}
-          >
-            DevPilot is a specialized platform tailored for junior developers
-            seeking job opportunities in the tech industry. By providing a
-            curated selection of job listings, DevPilot helps new developers
-            find their footing in the competitive job market. With a
-            user-friendly interface and an extensive range of listings, the
-            platform aims to simplify the job search process and connect
-            aspiring developers with their ideal roles. DevPilot is dedicated to
-            empowering the next generation of software developers and building a
-            strong community for growth and job fulfillment.
-          </Typography>
-          <Grid container spacing={3}>
-            {teamMembers.map((member, index) => (
-              <Grid item xs={isMobile ? 12 : 6} sm={6} md={4} key={index}>
-                <Card>
-                  <CardContent>
-                    <Typography variant="h5" component="h2">
-                      {member.name}
-                    </Typography>
-                    <Typography
-                      variant="body2"
-                      component="p"
-                      style={{ marginBottom: "16px" }}
-                    >
-                      {member.bio}
-                    </Typography>
-                  </CardContent>
-                  <CardActions>
-                    <Button
-                      href={member.github}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="small"
-                    >
-                      GitHub
-                    </Button>
-                    <Button
-                      href={member.linkedin}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      size="small"
-                    >
-                      LinkedIn
-                    </Button>
-                  </CardActions>
-                </Card>
+        
+          <Box pt={isMobile ? 4 : 8}>
+            <Grid container spacing={2}>
+              <Grid item xs={12}>
+                <Box>
+                  <Typography
+                    variant="h2"
+                    component="h1"
+                    gutterBottom
+                    // style={{
+                    //   // marginBottom: "24px",
+                    //   marginTop: isMobile ? 4 : 8,
+                    // }}
+                    sx={{
+                      color: theme.palette.secondary.main,
+                      fontWeight: 700,
+                      fontSize: 75,
+                    }}
+                  >
+                    About
+                  </Typography>
+                
+                <Typography
+                  variant="h2"
+                  component="h2"
+                  gutterBottom
+                  sx={{
+                    color: theme.palette.secondary.main,
+                    fontWeight: 700,
+                    fontSize: 25,
+                  }}
+                >
+                  DevPilot is a specialized platform tailored for junior
+                  developers seeking job opportunities in the tech industry. By
+                  providing a curated selection of job listings, DevPilot helps
+                  new developers find their footing in the competitive job
+                  market. With a user-friendly interface and an extensive range
+                  of listings, the platform aims to simplify the job search
+                  process and connect aspiring developers with their ideal
+                  roles. DevPilot is dedicated to empowering the next generation
+                  of software developers and building a strong community for
+                  growth and job.
+                </Typography>
+                </Box>
+                <Grid container spacing={3}>
+                  {teamMembers.map((member, index) => (
+                    <Grid item xs={isMobile ? 12 : 6} sm={6} md={4} key={index}>
+                      <Card>
+                        <CardContent>
+                          <Typography variant="h5" component="h2">
+                            {member.name}
+                          </Typography>
+                          <Typography
+                            variant="body2"
+                            component="p"
+                            style={{ marginBottom: "16px" }}
+                          >
+                            {member.bio}
+                          </Typography>
+                        </CardContent>
+                        <CardActions>
+                          <Button
+                            href={member.github}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            size="small"
+                          >
+                            GitHub
+                          </Button>
+                          <Button
+                            href={member.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            size="small"
+                          >
+                            LinkedIn
+                          </Button>
+                        </CardActions>
+                      </Card>
+                    </Grid>
+                  ))}
+                </Grid>
               </Grid>
-            ))}
-          </Grid>
-        </Grid>
+            </Grid>
+          </Box>
+      
       </Root>
-      <Footer />
     </>
   );
 }

@@ -22,7 +22,7 @@ const Footer = () => {
     >
     <Typography variant="h6" fontSize={15} align="center" color={theme.palette.text.secondary}
        gutterBottom>
-        &copy; 2023: Made by Anton, Maud & Vinita
+        &copy; 2023: Made with 	❤ by Get set...React.
       </Typography>
     </Box>
     </ThemeProvider>

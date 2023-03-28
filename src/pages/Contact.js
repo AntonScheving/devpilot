@@ -13,7 +13,8 @@ const Contact = () => {
           <ContactForm />
         </Box>
       </Box>
-      <Footer/> 
+
+      <Footer/>
     </>
   );
 }

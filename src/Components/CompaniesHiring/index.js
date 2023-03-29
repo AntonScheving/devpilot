@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import CompanySearch from "../CompanySearch";
 import Navbar from "../Navbar";
+import Footer from "../Footer";
 
-// // Axios ia a HTTP client for making API requests
+// Axios is a HTTP client for making API requests
 import Axios from "axios";
+// Link is imported from "react-router-dom" to handle in-app navigation.
 import { Link as RouterLink } from "react-router-dom";
 import {
   Container,
@@ -18,7 +20,6 @@ import {
   Grid,
   AppBar,
   Toolbar,
-  // TextField,
 } from "@mui/material";
 
 const Root = styled(Box)(({ theme }) => ({
@@ -27,11 +28,11 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "bottom",
-  // height: "265vh",
 }));
 
 export default function CompaniesHiring() {
   const [groupedCompanies, setGroupedCompanies] = useState([]);
+  // useTheme and useMediaQuery are hooks from Material UI
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("xs"));
 
@@ -64,7 +65,7 @@ export default function CompaniesHiring() {
       );
     });
   };
-  
+
   return (
     <>
       <Navbar />
@@ -75,7 +76,6 @@ export default function CompaniesHiring() {
               <Typography
                 variant="h2"
                 component="h1"
-                gutterBottom
                 sx={{
                   color: theme.palette.secondary.main,
                   fontWeight: 700,
@@ -104,7 +104,6 @@ export default function CompaniesHiring() {
                       disableGutters={isMobile}
                     >
                       <ListItemText
-                        gutterBottom
                         sx={{ color: "common.white" }}
                         primary={`${company.name} (${company.count})`}
                         primaryTypographyProps={{ variant: "body1" }}
@@ -117,6 +116,7 @@ export default function CompaniesHiring() {
           </Grid>
         </Box>
       </Root>
+      <Footer />
     </>
   );
 }

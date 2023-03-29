@@ -54,28 +54,24 @@ function About() {
     <>
       <Navbar />
       <Root className="hero-root">
-        
-          <Box pt={isMobile ? 4 : 8}>
-            <Grid container spacing={2}>
-              <Grid item xs={12}>
-                <Box>
-                  <Typography
-                    variant="h2"
-                    component="h1"
-                    gutterBottom
-                    // style={{
-                    //   // marginBottom: "24px",
-                    //   marginTop: isMobile ? 4 : 8,
-                    // }}
-                    sx={{
-                      color: theme.palette.secondary.main,
-                      fontWeight: 700,
-                      fontSize: 75,
-                    }}
-                  >
-                    About
-                  </Typography>
-                
+        <Box pt={isMobile ? 4 : 8}>
+          <Grid container spacing={2}>
+            <Grid item xs={12}>
+              <Box>
+                <Typography
+                  variant="h2"
+                  component="h1"
+                  gutterBottom
+                  sx={{
+                    color: theme.palette.secondary.main,
+                    fontWeight: 700,
+                    fontSize: 75,
+                    marginTop: 5,
+                  }}
+                >
+                  About
+                </Typography>
+
                 <Typography
                   variant="h2"
                   component="h2"
@@ -84,6 +80,7 @@ function About() {
                     color: theme.palette.secondary.main,
                     fontWeight: 700,
                     fontSize: 25,
+                    paddingBottom: 10,
                   }}
                 >
                   DevPilot is a specialized platform tailored for junior
@@ -97,49 +94,54 @@ function About() {
                   of software developers and building a strong community for
                   growth and job.
                 </Typography>
-                </Box>
-                <Grid container spacing={3}>
-                  {teamMembers.map((member, index) => (
-                    <Grid item xs={isMobile ? 12 : 6} sm={6} md={4} key={index}>
-                      <Card>
-                        <CardContent>
-                          <Typography variant="h5" component="h2">
-                            {member.name}
-                          </Typography>
-                          <Typography
-                            variant="body2"
-                            component="p"
-                            style={{ marginBottom: "16px" }}
-                          >
-                            {member.bio}
-                          </Typography>
-                        </CardContent>
-                        <CardActions>
-                          <Button
-                            href={member.github}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                          >
-                            GitHub
-                          </Button>
-                          <Button
-                            href={member.linkedin}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            size="small"
-                          >
-                            LinkedIn
-                          </Button>
-                        </CardActions>
-                      </Card>
-                    </Grid>
-                  ))}
-                </Grid>
+              </Box>
+              <Grid
+                container
+                spacing={1}
+                sx={{
+                  paddingBottom: 10,
+                }}
+              >
+                {teamMembers.map((member, index) => (
+                  <Grid item xs={isMobile ? 12 : 6} sm={6} md={4} key={index}>
+                    <Card>
+                      <CardContent>
+                        <Typography variant="h5" component="h2" >
+                          {member.name}
+                        </Typography>
+                        <Typography
+                          variant="body2"
+                          component="p"
+                          style={{ marginBottom: "16px" }}
+                        >
+                          {member.bio}
+                        </Typography>
+                      </CardContent>
+                      <CardActions>
+                        <Button
+                          href={member.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="small"
+                        >
+                          GitHub
+                        </Button>
+                        <Button
+                          href={member.linkedin}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          size="small"
+                        >
+                          LinkedIn
+                        </Button>
+                      </CardActions>
+                    </Card>
+                  </Grid>
+                ))}
               </Grid>
             </Grid>
-          </Box>
-      
+          </Grid>
+        </Box>
       </Root>
     </>
   );

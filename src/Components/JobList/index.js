@@ -27,14 +27,12 @@ const JobList = () => {
       <Box
         sx={{
           fontFamily: `{'Lato', sans-serif;}`,
-          display: 'flex',
-          flexDirection: 'column',
-          alignItems: 'center',
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
         }}
       >
-        <Typography variant="h2" 
-        mb={2}
-        color={theme.palette.text.tertiary}>
+        <Typography variant="h2" mb={2} color={theme.palette.text.tertiary}>
           Junior Front-end Developer Jobs
         </Typography>
 
@@ -44,38 +42,60 @@ const JobList = () => {
             orientation="horizontal"
             sx={{
               width: "80%",
-              height: 100,
+              height: 120,
+              [theme.breakpoints.down("sm")]: {
+                width: "100%",
+                height: "auto",
+                display: "flex",
+                alignItems: "center",
+              },
             }}
             key={item.id}
           >
-            <CardContent>
-              <Typography
+            <CardContent
               sx={{
                 width: "100%",
                 textAlign: "center",
                 color: theme.palette.text.tertiary,
-                fontWeight: "600"
-              }}>
-              {
-                <a
-                  href={item.redirect_url}
-                  style={{ textDecoration: "none", color: "inherit" }}
+                fontWeight: "600",
+                "& > a": {
+                  textDecoration: "none",
+                  color: "inherit",
+                },
+              }}
+            >
+              <React.Fragment>
+                <Typography
+                  sx={{
+                    width: "100%",
+                    textAlign: "center",
+                    color: theme.palette.text.tertiary,
+                    fontWeight: "600",
+                  }}
                 >
-                  {item.title}
-                </a>
-              }
-              </Typography>
-              <Typography
-              sx={{
-                color: theme.palette.text.secondary,
-              }}>
-                {`Company: ${item.company.display_name},  
-               Location: ${item.location.display_name}, Salary: ${item.salary_min}`}
-               </Typography>
+                  {
+                    <a
+                      href={item.redirect_url}
+                      style={{ textDecoration: "none", color: "inherit" }}
+                    >
+                      {item.title}
+                    </a>
+                  }
+                </Typography>
+                <Typography
+                  sx={{
+                    color: theme.palette.text.secondary,
+                  }}
+                >
+                  <div>Company: {item.company.display_name}</div>
+                  <div>Location: {item.location.display_name}</div>
+                  <div>Salary: {item.salary_min}</div>
+                </Typography>
+              </React.Fragment>
             </CardContent>
           </Card>
         ))}
-      </Box>
+      </Box> 
     </Root>
   );
 };

@@ -5,7 +5,6 @@ const CompaniesPage = () => {
   return (
     <>
       <CompaniesHiring />
-  
     </>
   );
 };

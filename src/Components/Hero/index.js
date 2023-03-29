@@ -52,6 +52,7 @@ const Hero = () => {
               variant="h3"
               component="h1"
               gutterBottom
+              paddingRight={5}
               sx={{
                 color: theme.palette.text.tertiary,
                 fontWeight: 600,
@@ -64,6 +65,7 @@ const Hero = () => {
               variant="h4"
               component="h2"
               gutterBottom
+              paddingRight={5}
               sx={{
                 color: theme.palette.text.tertiary,
                 fontWeight: 300,
@@ -75,6 +77,7 @@ const Hero = () => {
             <Typography
               variant="h5"
               gutterBottom
+              paddingRight={5}
               sx={{ color: theme.palette.text.primary }}
             >
               Your go-to platform for tailored entry-level tech opportunities...

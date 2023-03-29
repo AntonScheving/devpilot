@@ -94,7 +94,7 @@ That's it! You've successfully installed and started the DevPilot application on
 
 
 
-DevPilot is built with the following tools and libraries: <ul><li>REACT</li> <li>Node.js</li> <li>Adzuna API (http://www.adzuna.co.uk)</li> <li>Material UI</li></ul>
+DevPilot is built with the following tools and libraries: <ul><li>HTML</li><li>CSS</li><li>Javascript</li> <li>REACT</li> <li>Node.js</li> <li>Adzuna API (http://www.adzuna.co.uk)</li> <li>Material UI</li><li>Netlify</li></ul>
 
 
 <br>
@@ -122,27 +122,24 @@ Thank you for considering contributing to this project! Please read the Contribu
 Types of Contributions
 We welcome contributions in the form of bug reports, feature requests, code contributions, and documentation improvements.
 
-How to Contribute
+### How to Contribute
 Fork the repository and create a new branch.
 Make your changes and ensure that they are well-documented and tested.
 Submit a pull request to the main repository and include a detailed description of your changes.
-Code of Conduct
+### Code of Conduct
 We expect all contributors to adhere to the Contributor Covenant. Please be respectful and inclusive in your contributions and interactions with others.
 
-
-
-
-
+<br>
 
 ## **Tests**
  
 To create and run tests for the DevPilot project, you can use Jest and React Testing Library, which are commonly used for testing React applications.
 
 Install dependencies: First, ensure that you have jest and @testing-library/react installed as development dependencies. If not, install them using the following command:
-css
-Copy code
+
 npm install --save-dev jest @testing-library/react
-Create test files: For each component or feature you'd like to test, create a test file in the respective component's folder, following the naming convention: <ComponentName>.test.js.
+Create test files: For each component or feature you'd like to test, create a test file in the respective component's folder, following the naming convention: ComponentName.test.js.
+
 Write tests: In the test files, import the necessary libraries and the components you want to test. Write test cases using test or it functions provided by Jest, and use React Testing Library utilities like render and screen to interact with your components.
 
 

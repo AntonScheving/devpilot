@@ -18,12 +18,16 @@ const Location = ({ searchHistoryManager }) => {
   };
 
   const fetchData = () => {
-    console.log("fetchData called");
     fetch(
       `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=100&what=Front-End%20Developer&what_and=junior%20Developer%20junior%20Web%20Developer&what_exclude=senior%20lead%20full&salary_include_unknown=1&where=${location}`
     )
     .then((response) => response.json())
-    .then((data) => setApiData(data.results))
+    .then((data) => {
+    if (data.results.length === 0) {
+      throw new Error("No data found for the searched city.");
+    }
+    setApiData(data.results);
+  })
     .catch((error) => console.error(error));
   };
   return (
@@ -103,7 +107,7 @@ const Location = ({ searchHistoryManager }) => {
                 },
               }}
               >
-                <React.Fragment>
+          <React.Fragment>
               <Typography
               sx={{
                 width: "100%",
@@ -120,17 +124,11 @@ const Location = ({ searchHistoryManager }) => {
                   </a>
                 }
                 </Typography>
-                <Typography 
-                sx={{
-                color: theme.palette.text.secondary,
-              }}
-              >
-                <div>Company: {job.company.display_name}</div>
-                  
-               <div>Location: {job.location.display_name}</div>
-               <div>Salary: {job.salary_min}</div>
-              </Typography>
-              </React.Fragment>
+                <Typography sx={{color: theme.palette.text.secondary }}>
+                  Company: {job.company.display_name}</Typography>
+                <Typography sx={{ color: theme.palette.text.secondary }}>Location: {job.location.display_name}</Typography>
+                <Typography sx={{ color: theme.palette.text.secondary }}>Salary: {job.salary_min}</Typography>
+          </React.Fragment>
               </CardContent>
             </Card>
           ))}

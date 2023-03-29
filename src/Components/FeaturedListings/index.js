@@ -26,8 +26,13 @@ const FeaturedListings = () => {
         return response.json();
       })
       .then((data) => {
-        // Set the state variable with the listings from the API response
-        setFeaturedListings(data.results);
+        if (data.results.length === 0) {
+          // If no results are found, show an alert message
+          alert('No results found.');
+        } else {
+          // Set the state variable with the listings from the API response
+          setFeaturedListings(data.results);
+        }
       })
       .catch((error) => console.error(error));
   }, []);
@@ -53,7 +58,7 @@ const FeaturedListings = () => {
         </Typography>
         <Typography variant="subtitle1" color="secondary">
           {" "}
-          sorted by date
+          Sorted by date
         </Typography>
         <List
           sx={{
@@ -68,7 +73,7 @@ const FeaturedListings = () => {
           }}
         >
           {featuredListings.map((featuredListing) => (
-            <ListItem key={featuredListing.title}>
+            <ListItem key={featuredListing.id}>
               <ListItemText
                 sx={{
                   width: "100%",

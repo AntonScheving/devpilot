@@ -21,13 +21,14 @@ const Location = ({ searchHistoryManager }) => {
     fetch(
       `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=100&what=Front-End%20Developer&what_and=junior%20Developer%20junior%20Web%20Developer&what_exclude=senior%20lead%20full&salary_include_unknown=1&where=${location}`
     )
-    .then((response) => response.json())
-    .then((data) => {
-    if (data.results.length === 0) {
-      throw new Error("No data found for the searched city.");
-    }
-    setApiData(data.results);
-  })
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.results.length === 0) {
+          alert('No job listings found for this city. Extend your search to another city.');
+        } else {
+          setApiData(data.results);
+  }
+})
     .catch((error) => console.error(error));
   };
   return (

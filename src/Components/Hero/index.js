@@ -49,23 +49,23 @@ const Hero = () => {
         <Grid item xs={12} sm={12} md={6}>
           <div>
             <Typography
-              variant="h2"
+              variant="h3"
               component="h1"
               gutterBottom
               sx={{
-                color: theme.palette.primary.main,
-                fontWeight: 700,
+                color: theme.palette.text.tertiary,
+                fontWeight: 600,
                 textTransform: "uppercase",
               }}
             >
-              Unlock your career potential
+              Discover and apply for junior front-end developer jobs in the UK with DevPilot
             </Typography>
             <Typography
               variant="h5"
               gutterBottom
-              sx={{ color: "common.white" }}
+              sx={{ color: theme.palette.text.primary}}
             >
-              Discover the perfect job match for your skills and passions
+              your go-to platform for tailored entry-level tech opportunities...
             </Typography>
 
             <ButtonWrapper className="button-wrapper">

@@ -9,7 +9,7 @@ const JobList = () => {
 
   useEffect(() => {
     fetch(
-      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=50&what=Junior%20front-end%20developer&what_exclude=senior%20lead%20&salary_max=50000"
+      "https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=100&what=Junior%20Front%20End%20Developer&what_and=junior%20Developer%20junior%20Web%20Developer&what_exclude=senior%20lead%20salary_include_unknown=1"
     )
       .then((response) => response.json())
       .then((data) => setJobs(data.results))
@@ -43,11 +43,13 @@ const JobList = () => {
             sx={{
               width: "80%",
               height: 120,
+              margin: 0.3,
               [theme.breakpoints.down("sm")]: {
                 width: "100%",
                 height: "auto",
                 display: "flex",
                 alignItems: "center",
+                margin: 0.3,
               },
             }}
             key={item.id}

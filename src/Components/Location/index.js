@@ -18,9 +18,8 @@ const Location = ({ searchHistoryManager }) => {
   };
 
   const fetchData = () => {
-    console.log("fetchData called");
     fetch(
-      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=0f15a296c6a265d2e7c0fb2fbe7cb467&results_per_page=50&what=junior%20Frontend%20developer&where=${location}`
+      `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=965a2d73c4df5e1c3f1e7c86b9b50096&results_per_page=100&what=Front-End%20Developer&what_and=junior%20Developer%20junior%20Web%20Developer&what_exclude=senior%20lead%20full&salary_include_unknown=1&where=${location}`
     )
       .then((response) => response.json())
       .then((data) => {
@@ -66,7 +65,7 @@ const Location = ({ searchHistoryManager }) => {
         {/* // conditional render which happens if the apiData array is empty n JobList comp renders  */}
         {!apiData.length && <JobList />}
         
-        <List
+       <List
           sx={{
             width: "100%",
             textAlign: "center",
@@ -85,11 +84,31 @@ const Location = ({ searchHistoryManager }) => {
               orientation="horizontal"
               sx={{
                 width: "80%",
-                height: 80,
+                height: 120,
+                margin: 0.3,
+                [theme.breakpoints.down("sm")]: {
+                width: "100%",
+                height: "auto",
+                display: "flex",
+                alignItems: "center",
+                margin: 0.3,
+                },
               }}
               key={job.id}
             >
-              <CardContent>
+              <CardContent
+              sx={{
+                width: "100%",
+                textAlign: "center",
+                color: theme.palette.text.tertiary,
+                fontWeight: "600",
+                "& > a": {
+                  textDecoration: "none",
+                  color: "inherit",
+                },
+              }}
+              >
+          <React.Fragment>
               <Typography
               sx={{
                 width: "100%",
@@ -106,17 +125,15 @@ const Location = ({ searchHistoryManager }) => {
                   </a>
                 }
                 </Typography>
-                <Typography 
-                sx={{
-                color: theme.palette.text.secondary,
-              }}>
-                {`Company: ${job.company.display_name},  
-               Location: ${job.location.display_name}, Salary: ${job.salary_min}`}
-              </Typography>
+                <Typography sx={{color: theme.palette.text.secondary }}>
+                  Company: {job.company.display_name}</Typography>
+                <Typography sx={{ color: theme.palette.text.secondary }}>Location: {job.location.display_name}</Typography>
+                <Typography sx={{ color: theme.palette.text.secondary }}>Salary: {job.salary_min}</Typography>
+          </React.Fragment>
               </CardContent>
             </Card>
           ))}
-        </List>
+      </List>
       </Box>
     </>
   );

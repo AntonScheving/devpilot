@@ -33,7 +33,7 @@ const JobList = () => {
         }}
       >
         <Typography variant="h2" mb={2} color={theme.palette.text.tertiary}>
-          Junior Front-end Developer Jobs
+          Junior Front-End Developer Jobs
         </Typography>
 
         {jobs.map((item) => (
@@ -84,20 +84,21 @@ const JobList = () => {
                     </a>
                   }
                 </Typography>
-                <Typography
-                  sx={{
-                    color: theme.palette.text.secondary,
-                  }}
-                >
-                  <div>Company: {item.company.display_name}</div>
-                  <div>Location: {item.location.display_name}</div>
-                  <div>Salary: {item.salary_min}</div>
+                <Typography sx={{ color: theme.palette.text.secondary }}>
+                  Company: {item.company.display_name}
+                </Typography>
+
+                <Typography sx={{ color: theme.palette.text.secondary }}>
+                  Location: {item.location.display_name}
+                </Typography>
+                <Typography sx={{ color: theme.palette.text.secondary }}>
+                  Salary: {item.salary_min}
                 </Typography>
               </React.Fragment>
             </CardContent>
           </Card>
         ))}
-      </Box> 
+      </Box>
     </Root>
   );
 };

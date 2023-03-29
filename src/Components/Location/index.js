@@ -22,8 +22,14 @@ const Location = ({ searchHistoryManager }) => {
     fetch(
       `https://api.adzuna.com/v1/api/jobs/gb/search/1?app_id=6c3aabdd&app_key=0f15a296c6a265d2e7c0fb2fbe7cb467&results_per_page=50&what=junior%20Frontend%20developer&where=${location}`
     )
-    .then((response) => response.json())
-    .then((data) => setApiData(data.results))
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.results.length === 0) {
+          alert('No job listings found for this city. Extend your search to another city.');
+        } else {
+          setApiData(data.results);
+  }
+})
     .catch((error) => console.error(error));
   };
   return (

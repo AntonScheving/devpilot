@@ -58,14 +58,26 @@ const Hero = () => {
                 textTransform: "uppercase",
               }}
             >
-              Discover and apply for junior front-end developer jobs in the UK with DevPilot
+              Unlock your career potential
+            </Typography>
+            <Typography
+              variant="h4"
+              component="h2"
+              gutterBottom
+              sx={{
+                color: theme.palette.text.tertiary,
+                fontWeight: 300,
+              }}
+            >
+              Discover and apply for junior front-end developer jobs in the UK
+              with DevPilot
             </Typography>
             <Typography
               variant="h5"
               gutterBottom
-              sx={{ color: theme.palette.text.primary}}
+              sx={{ color: theme.palette.text.primary }}
             >
-              your go-to platform for tailored entry-level tech opportunities...
+              Your go-to platform for tailored entry-level tech opportunities...
             </Typography>
 
             <ButtonWrapper className="button-wrapper">

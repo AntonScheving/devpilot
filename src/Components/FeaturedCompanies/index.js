@@ -50,7 +50,7 @@ const FeaturedCompanies = () => {
         </Typography>
         <Typography variant="subtitle1" color="secondary">
           {" "}
-          Ranked by job vacancies available
+          Hiring Front-end developers ranked by job vacancies available
         </Typography>
         <List
           sx={{

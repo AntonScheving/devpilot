@@ -20,11 +20,9 @@ const FeaturedCompanies = () => {
       // Make API request to fetch top companies for front-end jobs in the UK
       fetch(apiURL)
         .then((response) => {
-          console.log("Response:", response);
           return response.json();
         })
         .then((data) => {
-          console.log("Data:", data);
           // Set the state variable with the leaderboard data from the API response
           setFeaturedCompanies(data.leaderboard);
         })
@@ -43,7 +41,7 @@ const FeaturedCompanies = () => {
       <Box
         sx={{
           margin: 2,
-          fontFamily: "Segoe UI",
+          fontFamily: `{'Lato', sans-serif;}`,
         }}
       >
         <Typography variant="h2" color={theme.palette.text.tertiary}>
@@ -88,7 +86,7 @@ const FeaturedCompanies = () => {
           component={Link}
           to="/companies"
         >
-           MORE EMPLOYERS
+          MORE EMPLOYERS
         </CustomButton>
       </Box>
     </Root>

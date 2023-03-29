@@ -23,11 +23,9 @@ const FeaturedListings = () => {
     // Make API request to fetch latest listings for junior front-end jobs in the UK
     fetch(apiURL)
       .then((response) => {
-        console.log("Response:", response);
         return response.json();
       })
       .then((data) => {
-        console.log("Data:", data);
         // Set the state variable with the listings from the API response
         setFeaturedListings(data.results);
       })

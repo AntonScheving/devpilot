@@ -1,7 +1,8 @@
 import React from "react";
-import { Grid, Box, Button, Typography } from "@mui/material";
+import { Grid, Box, Typography } from "@mui/material";
 import { styled, useTheme } from "@mui/material/styles";
 import { Link } from "react-router-dom";
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
 const Root = styled(Box)(({ theme }) => ({
   backgroundImage: `linear-gradient(0deg, ${theme.palette.background.default} 22%, ${theme.palette.primary.main} 90%)`, // Set the background gradient colors
@@ -9,7 +10,8 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  height: "150vh",
+  height: "120vh",
+  marginTop:"60px"
 }));
 
 const Image = styled("img")({
@@ -25,15 +27,6 @@ const ButtonWrapper = styled("div")({
   marginTop: "50px",
 });
 
-const CustomButton = styled(Button)(({ theme }) => ({
-  marginRight: "10px",
-  color: theme.palette.primary.contrastText,
-  backgroundColor: theme.palette.info.main,
-  "&:hover": {
-    backgroundColor: theme.palette.secondary.dark,
-  },
-}));
-
 const Hero = () => {
   const theme = useTheme();
   return (
@@ -46,14 +39,14 @@ const Hero = () => {
           alignItems: "center",
         }}
       >
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <Image
             className="hero-img"
             src={process.env.PUBLIC_URL + "/images/lookingForAJob.jpg"}
             alt="Image by pch.vector on Freepik"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <div>
             <Typography
               variant="h2"
@@ -101,9 +94,13 @@ const Hero = () => {
      class name added to the MUi components to specify selector */}
       <style>
         {`
-    @media (min-width: ${theme.breakpoints.values.md}px) {
+        @media (min-width: ${theme.breakpoints.values.sm}px) {
       .hero-root {
         height: 100vh;
+      }
+    @media (min-width: ${theme.breakpoints.values.md}px) {
+      .hero-root {
+        height: 80vh;
       }
       .hero-img {
         max-width: 80%;

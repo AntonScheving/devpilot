@@ -64,7 +64,7 @@ export default function CompaniesHiring() {
       );
     });
   };
-  // title
+  
   return (
     <>
       <Navbar />

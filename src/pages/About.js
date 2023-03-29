@@ -9,7 +9,6 @@ const CompaniesPage = () => {
       <Navbar/>
       <About />
       <Footer />
-      
     </>
   );
 };

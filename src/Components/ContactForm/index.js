@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from "react";
-import { Button, TextField, Box, Grid, Typography } from "@mui/material";
+import { TextField, Box, Grid, Typography } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
-
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
 const ContactForm = () => {
   const theme = useTheme();
@@ -125,10 +125,14 @@ const ContactForm = () => {
           />
         </Grid>
       </Grid>
-      <Grid item xs={12} margin="20">
-        <Button type="submit" variant="contained" fullWidth>
+      <Grid item xs={12}>
+        <CustomButton
+          type="submit"
+          variant="contained"
+          style={{ margin: "20px" }}
+        >
           Submit
-        </Button>
+        </CustomButton>
       </Grid>
     </Box>
   );

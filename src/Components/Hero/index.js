@@ -10,7 +10,8 @@ const Root = styled(Box)(({ theme }) => ({
   justifyContent: "center",
   alignItems: "center",
   textAlign: "center",
-  height: "100vh",
+  height: "120vh",
+  marginTop:"60px"
 }));
 
 const Image = styled("img")({
@@ -38,14 +39,14 @@ const Hero = () => {
           alignItems: "center",
         }}
       >
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <Image
             className="hero-img"
             src={process.env.PUBLIC_URL + "/images/lookingForAJob.jpg"}
             alt="Image by pch.vector on Freepik"
           />
         </Grid>
-        <Grid item xs={12} sm={6}>
+        <Grid item xs={12} sm={12} md={6}>
           <div>
             <Typography
               variant="h2"
@@ -93,9 +94,13 @@ const Hero = () => {
      class name added to the MUi components to specify selector */}
       <style>
         {`
+        @media (min-width: ${theme.breakpoints.values.sm}px) {
+      .hero-root {
+        height: 100vh;
+      }
     @media (min-width: ${theme.breakpoints.values.md}px) {
       .hero-root {
-        height: 70vh;
+        height: 80vh;
       }
       .hero-img {
         max-width: 80%;

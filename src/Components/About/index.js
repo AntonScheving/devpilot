@@ -1,5 +1,6 @@
 import React from "react";
 import Navbar from "../Navbar";
+import { CustomButton } from "../common/CommonButton/CustomButton";
 
 import {
   Typography,
@@ -7,7 +8,6 @@ import {
   Card,
   CardContent,
   CardActions,
-  Button,
   styled,
   Box,
   useMediaQuery,
@@ -118,22 +118,22 @@ function About() {
                         </Typography>
                       </CardContent>
                       <CardActions>
-                        <Button
+                        <CustomButton
                           href={member.github}
                           target="_blank"
                           rel="noopener noreferrer"
                           size="small"
                         >
                           GitHub
-                        </Button>
-                        <Button
+                        </CustomButton>
+                        <CustomButton
                           href={member.linkedin}
                           target="_blank"
                           rel="noopener noreferrer"
                           size="small"
                         >
                           LinkedIn
-                        </Button>
+                        </CustomButton>
                       </CardActions>
                     </Card>
                   </Grid>

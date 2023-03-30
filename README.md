@@ -8,7 +8,10 @@
 - [Tests](#tests)
 - [GitHub](#github)
 - [License](#license)
+
+
 ![GitHub repo size](https://img.shields.io/github/repo-size/AntonScheving/devpilot?style=plastic)
+
   ![GitHub top language](https://img.shields.io/github/languages/top/AntonScheving/devpilot?style=plastic)
 
 ## **Description**
@@ -91,20 +94,27 @@ Write tests: In the test files, import the necessary libraries and the component
 
 ### **Maud Mainnemard**
 <p>Front-end developer in the making, currently taking part in a bootcamp in the hope to start a career in Tech. I am not sure where the road will lead so keep in touch to find out.</p>
+
 <a href=“https://github.com/maudmain”><strong>GitHub</a></strong>
+
 <a href=“https://www.linkedin.com/in/maud-mainnemard/”><strong>Linkedin</a></strong>
 <br>
 
 ### **Vinita Yadav**
 <p>Having certification in Front end web development by edX bootcamp, I am looking for the opportunities to start my career in Tech. Happy to make new connections.</p>
+
 <a href=“https://github.com/Vinita686”><strong>GitHub</a></strong>
+
 <a href=“https://www.linkedin.com/in/yadav-vinita/”><strong>Linkedin</a></strong>
 <br>
 
 ### **Anton Scheving**
 <p>As a dedicated front-end developer, I am passionate about creating visually appealing and user-friendly websites that effectively communicate a brand’s message. With a strong focus on optimizing user experience, I carefully design interfaces that engage visitors and foster seamless interactions, enhancing overall satisfaction and promoting business growth.</p>
+
 <a href=“https://github.com/AntonScheving”><strong>GitHub</a></strong>
+
 <a href=“https://www.linkedin.com/in/antonscheving/”><strong>Linkedin</a></strong>
+
 <p>Visit my website: <strong><a href=“www.antonscheving.com”>AntonScheving.com</a></strong></p>
 <br>
 

@@ -99,6 +99,7 @@ Write tests: In the test files, import the necessary libraries and the component
 <a href=“https://github.com/maudmain”><strong>GitHub</a></strong>
 
 <a href=“https://www.linkedin.com/in/maud-mainnemard/”><strong>Linkedin</a></strong>
+
 <br>
 
 ### **Vinita Yadav**
@@ -107,6 +108,7 @@ Write tests: In the test files, import the necessary libraries and the component
 <a href=“https://github.com/Vinita686”><strong>GitHub</a></strong>
 
 <a href=“https://www.linkedin.com/in/yadav-vinita/”><strong>Linkedin</a></strong>
+
 <br>
 
 ### **Anton Scheving**
@@ -117,6 +119,7 @@ Write tests: In the test files, import the necessary libraries and the component
 <a href=“https://www.linkedin.com/in/antonscheving/”><strong>Linkedin</a></strong>
 
 <p>Visit my website: <strong><a href=“www.antonscheving.com”>AntonScheving.com</a></strong></p>
+
 <br>
 
 ## License

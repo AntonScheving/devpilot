@@ -9,14 +9,15 @@
 - [GitHub](#github)
 - [License](#license)
 
+<br>
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/AntonScheving/devpilot?style=plastic)
 
-  ![GitHub top language](https://img.shields.io/github/languages/top/AntonScheving/devpilot?style=plastic)
+![GitHub top language](https://img.shields.io/github/languages/top/AntonScheving/devpilot?style=plastic)
 
 ## **Description**
 
-  DevPilot is a job platform designed specifically for junior front-end developers seeking entry-level opportunities in the UK. It simplifies the job search process by aggregating job listings and company profiles, allowing users to apply directly through the platform. DevPilot utilizes APIs from Adzuna, with React for the front-end and Node.js for NPM.
+DevPilot is a job platform designed specifically for junior front-end developers seeking entry-level opportunities in the UK. It simplifies the job search process by aggregating job listings and company profiles, allowing users to apply directly through the platform. DevPilot utilizes APIs from Adzuna, with React for the front-end and Node.js for NPM.
 Motivated by the need to make job searching more accessible and efficient for those new to the tech industry, DevPilot addresses the challenge of finding suitable positions for junior developers or individuals switching careers. By centralizing job postings and providing a user-friendly interface, it serves as a valuable resource for those unsure of where to begin their search.
 Through the development of DevPilot, we learned how to effectively integrate multiple job APIs and leverage various technologies, such as React, Node.js, and Material UI, to create a seamless and responsive web application. This project demonstrates the power of combining different tools and resources to solve a real-world problem and support a growing community of tech professionals.
 <br>

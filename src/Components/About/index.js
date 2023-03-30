@@ -33,16 +33,16 @@ const teamMembers = [
     linkedin: "https://www.linkedin.com/in/maud-mainnemard/",
   },
   {
-    name: "Vinita Yadav",
-    bio: "Having certification in Front end web development by edX bootcamp, I am looking for the opportunities to start my career in Tech. Happy to make new connections.",
-    github: "https://github.com/Vinita686",
-    linkedin: "https://www.linkedin.com/in/yadav-vinita/",
-  },
-  {
     name: "Anton Scheving",
     bio: "As a dedicated front-end developer, I am passionate about creating appealing and user-friendly websites. With a keen eye for detail and a strong foundation in coding, I strive to contribute to innovative projects and support businesses in their digital journey.",
     github: "https://github.com/AntonScheving",
     linkedin: "https://www.linkedin.com/in/antonscheving/",
+  },
+  {
+    name: "Vinita Yadav",
+    bio: "Having certification in Front end web development by edX bootcamp, I am looking for the opportunities to start my career in Tech. Happy to make new connections.",
+    github: "https://github.com/Vinita686",
+    linkedin: "https://www.linkedin.com/in/yadav-vinita/",
   },
 ];
 

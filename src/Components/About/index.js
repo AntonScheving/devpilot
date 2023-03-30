@@ -103,10 +103,17 @@ function About() {
                 }}
               >
                 {teamMembers.map((member, index) => (
-                  <Grid item xs={isMobile ? 12 : 6} sm={6} md={4} key={index}>
-                    <Card>
+                  <Grid item xs={12} sm={12} md={4} key={index}>
+                    <Card
+                      sx={{
+                        height: 250,
+                        [theme.breakpoints.down("xl")]: {
+                          height: "auto",
+                        },
+                      }}
+                    >
                       <CardContent>
-                        <Typography variant="h5" component="h2" >
+                        <Typography variant="h5" component="h2">
                           {member.name}
                         </Typography>
                         <Typography
@@ -117,7 +124,9 @@ function About() {
                           {member.bio}
                         </Typography>
                       </CardContent>
-                      <CardActions>
+                      <CardActions
+                        sx={{ display: "flex", justifyContent: "space-around" }}
+                      >
                         <CustomButton
                           href={member.github}
                           target="_blank"

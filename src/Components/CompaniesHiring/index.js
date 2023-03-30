@@ -63,6 +63,9 @@ export default function CompaniesHiring() {
           url,
         }))
       );
+      if (response.data.results.length === 0) {
+      alert('No job listings found for this city. Extend your search to another city.');
+      }
     });
   };
 
